@@ -2,27 +2,6 @@ import React, { useEffect } from 'react';
 import { Modal } from 'bootstrap';
 
 function MyModal(props) {
-    // useEffect(() => {
-    //     const modalElement = document.getElementById(props.id);
-    //     const modalInstance = new Modal(modalElement);
-
-    //     // Event listener to clean up backdrops when modal is hidden
-    //     const handleModalHide = () => {
-    //         // Remove any lingering backdrops
-    //         document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
-    //             backdrop.remove();
-    //         });
-    //     };
-
-    //     // Attach event listener
-    //     modalElement.addEventListener('hidden.bs.modal', handleModalHide);
-
-    //     // Cleanup on component unmount
-    //     return () => {
-    //         modalElement.removeEventListener('hidden.bs.modal', handleModalHide);
-    //         modalInstance.dispose(); // Dispose the modal instance to avoid memory leaks
-    //     };
-    // }, [props.id]);
 
     return <>
         <div className={`modal fade ${props.show ? 'show' : ''}`} tabIndex="-1" id={props.id}>

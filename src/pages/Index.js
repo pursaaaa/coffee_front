@@ -11,6 +11,8 @@ import { Modal } from 'bootstrap'; // Import the Modal module from Bootstrap
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 
 function Index() {
@@ -25,6 +27,7 @@ function Index() {
     const [payDate, setPayDate] = useState(dayjs(new Date()).format('YYYY-MM-DD'));
     const [payTime, setPayTime] = useState('');
     const [isSaving, setIsSaving] = useState(false);
+    const [billSale, setBillSale] = useState([]);
 
     const [qrCodeUrl, setQrCodeUrl] = useState(''); // Stores the generated QR code URL
 
@@ -57,7 +60,7 @@ function Index() {
 
             if (item.img === "") imgPath = "default_image.png";
 
-            return <img className='card-img-top' height='150px' src={imgPath} alt='' />
+            return <img className='card-img-top object-fit-fill' height='150px' src={imgPath} alt='item' />
         }
 
         return <></>;
@@ -228,6 +231,7 @@ function Index() {
 
     return (
         <>
+            <Navbar />
             <div className='container-fluid mt-3'>
                 <div className='float-start'>
                     <div className='h3'>สินค้าของร้านเรา</div>
@@ -265,6 +269,7 @@ function Index() {
                     ) : <></>}
                 </div>
             </div>
+            <Footer />
 
             <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
                 <table className='table table-bordered table-striped'>
@@ -334,7 +339,7 @@ function Index() {
                         <img src={qrCodeUrl} alt="PromptPay QR Code" />
                         <p>Scan this QR code to pay {sumPrice.toLocaleString()} THB</p>
                         <button className='btn btn-primary mt-3' onClick={handleDeposit}>
-                            <i className='fa fa-check mr-2'></i>ยืนยันการโอนเงิน
+                            <i className='fa fa-check mr-2'></i> ยืนยันการโอนเงิน
                         </button>
                     </div>
 
