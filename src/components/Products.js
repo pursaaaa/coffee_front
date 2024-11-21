@@ -36,7 +36,7 @@ function Products() {
 
             if (item.img === "") imgPath = "default_image.png"
 
-            return <img className='card-img-top object-fit-contain' height='200px' src={imgPath} alt={item.name} />
+            return <img className='card-img-top object-fit-contain mt-3' height='200px' src={imgPath} alt={item.name} />
         }
     }
 
@@ -52,7 +52,7 @@ function Products() {
                                 <div className="card-body">
                                     <h5 className="card-title">{item.name}</h5>
                                     <p className="card-text">{item.price.toLocaleString('th-TH')}</p>
-                                    <a href="/" className="btn btn-warning">Buy</a>
+                                    <a href="/" className="btn btn-warning">Buy now</a>
                                 </div>
                             </div>
                         </div>

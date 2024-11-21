@@ -27,7 +27,6 @@ function Index() {
     const [payDate, setPayDate] = useState(dayjs(new Date()).format('YYYY-MM-DD'));
     const [payTime, setPayTime] = useState('');
     const [isSaving, setIsSaving] = useState(false);
-    const [billSale, setBillSale] = useState([]);
 
     const [qrCodeUrl, setQrCodeUrl] = useState(''); // Stores the generated QR code URL
 
@@ -232,7 +231,7 @@ function Index() {
     return (
         <>
             <Navbar />
-            <div className='container-fluid mt-3'>
+            <div className='shop container-fluid mt-3'>
                 <div className='float-start'>
                     <div className='h3'>สินค้าของร้านเรา</div>
                 </div>
@@ -349,8 +348,6 @@ function Index() {
             </MyModal>
         </>
     )
-
-
 }
 
 export default Index;

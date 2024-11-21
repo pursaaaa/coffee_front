@@ -1,8 +1,9 @@
 import React from 'react';
+import '../App.css'
 
 function Footer() {
     return (
-        <footer id="footer" className="fixed-buttom text-center py-4 mt-5" style={{ backgroundColor: '#4E342E', color: '#D7CCC8' }}>
+        <footer>
             <div className="container">
                 <p>© 2024 CoffeeBeans. All Rights Reserved.</p>
                 <div>

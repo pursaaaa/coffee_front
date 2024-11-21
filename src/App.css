@@ -1,6 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the body and html take full height */
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.shop {
+  min-height: 100vh;
+}
+
+/* App container */
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -62,6 +82,13 @@ body {
 
 }
 
-footer a {
+/* Footer always at the bottom */
+footer {
+  margin-top: auto;
+  background-color: #4E342E; /* Rich Brown */
+  color: #D7CCC8; /* Soft Beige */
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 1rem;
   text-decoration: none;
 }

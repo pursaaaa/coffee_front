@@ -8,15 +8,20 @@ import {
 } from 'react-router-dom'
 
 import Home from './pages/Home';
+import Contact from './pages/Contact';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/shop',
     element: <Index />
   },
   {
     path: '/home',
     element: <Home />
+  },
+  {
+    path: '/contact',
+    element: <Contact />
   }
 ]);
 
