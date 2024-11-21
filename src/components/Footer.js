@@ -7,9 +7,9 @@ function Footer() {
             <div className="container">
                 <p>© 2024 CoffeeBeans. All Rights Reserved.</p>
                 <div>
-                    <a href="#" className="text-warning mx-2">Facebook</a>
-                    <a href="#" className="text-warning mx-2">Instagram</a>
-                    <a href="#" className="text-warning mx-2">Twitter</a>
+                    <a href="https://www.facebook.com/pursa.kaewsootthipol" target='_blank' className="text-warning mx-2">Facebook</a>
+                    <a href="https://www.instagram.com/pursapung/" target='_blank' className="text-warning mx-2">Instagram</a>
+                    <a href="#" target='_blank' className="text-warning mx-2">X</a>
                 </div>
             </div>
         </footer>

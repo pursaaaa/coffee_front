@@ -51,46 +51,44 @@ function Contact() {
         <Navbar />
         <section className="contact-page">
             <div className="container">
-                <h1 className="text-center mb-5">Get in Touch</h1>
+                <p className="text-center mb-5 fw-bold fs-1">Get in Touch with Us!</p>
                 <div className="row">
                     <div className="col-md-6 mb-4">
                         <div className="contact-form p-4 shadow">
-                            <h4 className="mb-4">Contact Us</h4>
+                            <h4 className="mb-4">ติดต่อเรา</h4>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
-                                    <label htmlFor="name" className="form-label">Full Name</label>
+                                    <label htmlFor="name" className="form-label">ชื่อ-นามสกุล</label>
                                     <input
                                         type="text"
                                         id="name"
                                         name="name"
                                         className="form-control"
-                                        placeholder="Enter your name"
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email</label>
+                                    <label htmlFor="email" className="form-label">อีเมล</label>
                                     <input
                                         type="email"
                                         id="email"
                                         name="email"
                                         className="form-control"
-                                        placeholder="Enter your email"
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
                                     />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="message" className="form-label">Message</label>
+                                    <label htmlFor="message" className="form-label">ข้อความ</label>
                                     <textarea
                                         id="message"
                                         name="message"
                                         rows="5"
                                         className="form-control"
-                                        placeholder="Write your message here..."
+                                        placeholder="เขียนข้อความที่นี่..."
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
@@ -126,4 +124,3 @@ function Contact() {
 export default Contact;
 
 
-// src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3874.774385981105!2d100.54554047454492!3d13.792469896351676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29c176b31de8d%3A0x214a3a74449e9b72!2zMTUxMS80NCDguJYuIOC4nuC4q-C4peC5guC4ouC4mOC4tOC4mSDguYHguILguKfguIfguJ7guI3guLLguYTguJcg4LmA4LiC4LiV4Lie4LiN4Liy4LmE4LiXIOC4geC4o-C4uOC4h-C5gOC4l-C4nuC4oeC4q-C4suC4meC4hOC4oyAxMDQwMA!5e0!3m2!1sth!2sth!4v1732184341369!5m2!1sth!2sth"
