@@ -7,7 +7,9 @@
 /* Ensure the body and html take full height */
 body {
   height: 100%;
+  font-family: 'Arial', sans-serif;
   margin: 0;
+  padding: 0;
 }
 
 .shop {
@@ -58,12 +60,6 @@ body {
   }
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
@@ -78,14 +74,13 @@ body {
 .products-section .card {
   border-radius: 8px;
   overflow: hidden;
-
 }
 
 /* Footer always at the bottom */
 footer {
   margin-top: auto;
-  background-color: #1a1a1a; 
-  color: #D7CCC8; /* Soft Beige */
+  background-color: #232323; 
+  color: #fff;
   padding: 1rem 0;
   text-align: center;
   font-size: 1rem;

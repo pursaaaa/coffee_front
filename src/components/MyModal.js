@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { Modal } from 'bootstrap';
+import React from 'react';
 
 function MyModal(props) {
 

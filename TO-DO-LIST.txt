@@ -1,0 +1,2 @@
+- Create database for customer
+- Create API to connect to register page and connect to database

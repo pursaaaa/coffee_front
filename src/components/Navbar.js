@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../Navbar.css'; // Custom styles for the Navbar
+import '../styles/Navbar.css'; // Custom styles for the Navbar
 
 function Navbar() {
     const location = useLocation(); // Hook to get the current path
@@ -35,8 +35,8 @@ function Navbar() {
                         <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
                             <Link to="/contact" className="nav-link px-3">About us</Link>
                         </li>
-                        <li>
-                            <Link to="/login" className='nav-link px-3'>Sign In</Link>
+                        <li className={`nav-item bg-warning-subtle ${location.pathname === '/signin' ? 'active' : ''}`}>
+                            <Link to="/signin" className='nav-link px-3 text-dark'>Sign In</Link>
                         </li>
                         <li>
                             <i className='fa fa-shopping-cart mt-2 text-light'> 0</i>

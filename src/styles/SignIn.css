@@ -1,0 +1,60 @@
+/* SignIn Page Styles #1a1a1a */
+
+/* Fullscreen Container */
+.signin-container {
+    height: 100vh;
+    background-color: #1a1a1a; /* Light Cream */
+}
+
+/* Card Styling */
+.signin-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 8px;
+    background-color: #FAF3E0;
+    border: 1px solid #D7CCC8; /* Soft Beige */
+}
+
+/* Form Label */
+.form-label {
+    color: #4E342E; /* Rich Brown */
+    font-weight: bold;
+}
+
+/* Input Fields */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #D7CCC8; /* Soft Beige */
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #FFCA28; /* Bright Yellow */
+    box-shadow: none;
+}
+
+/* Submit Button */
+.btn-primary {
+    background-color: #FFCA28; /* Bright Yellow */
+    border: none;
+    color: #4E342E; /* Rich Brown */
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #E6B400; /* Slightly darker yellow */
+    color: #fff;
+}
+
+/* Link Button */
+.btn-link {
+    color: #4E342E;
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.btn-link:hover {
+    color: #FFCA28;
+    text-decoration: none;
+}

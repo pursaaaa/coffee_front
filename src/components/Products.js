@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import config from '../config';
-import '../Products.css';
+import '../styles/Products.css';
 
 function Products() {
     const [product, setProducts] = useState([]);
