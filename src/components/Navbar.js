@@ -6,36 +6,47 @@ function Navbar() {
     const location = useLocation(); // Hook to get the current path
 
     return (
-        <nav className="navbar navbar-expand-lg bg-coffee">
-            <div className="container">
-                <a className="navbar-brand text-light fs-3 fw-bold" href="/">CoffeeBoonTEST3</a>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto align-items-center">
-                        <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+
+        <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="/">Coffee</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
+
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Coffee</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+
+            <div class="offcanvas-body">
+              <ul class="navbar-nav ms-auto navlist">
+              <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
                             <Link to="/" className="nav-link px-3">Home</Link>
                         </li>
                         <li className={`nav-item ${location.pathname === '/shop' ? 'active' : ''}`}>
                             <Link to="/shop" className="nav-link px-3">Shop</Link>
                         </li>
-                        <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
-                            <Link to="/contact" className="nav-link px-3">Contact</Link>
+                        <li className={`nav-item ${location.pathname === '/people' ? 'active' : ''}`}>
+                            <Link to="/people" className="nav-link px-3">People</Link>
                         </li>
-                    </ul>
-                </div>
+                        <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
+                            <Link to="/contact" className="nav-link px-3">About us</Link>
+                        </li>
+                        <li>
+                            <Link to="/login" className='nav-link px-3'>Sign In</Link>
+                        </li>
+                        <li>
+                            <i className='fa fa-shopping-cart mt-2 text-light'> 0</i>
+                        </li>
+              </ul>
             </div>
-        </nav>
-    );
+          </div>
+        </div>
+      </nav>
+    )
 }
 
 export default Navbar;

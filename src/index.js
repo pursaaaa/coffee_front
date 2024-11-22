@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Index from './pages/Index';
+import './App.css';
 
 import {
   createBrowserRouter,
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
     path: '/shop',
     element: <Index />
   },
+
   {
     path: '/contact',
     element: <Contact />

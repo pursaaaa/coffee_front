@@ -70,7 +70,6 @@ body {
 }
 
 .hero-section {
-  background-image: url('https://assets.bonappetit.com/photos/5c366551f212512d0e6cefd0/16:9/w_2560%2Cc_limit/Basically-Coffee-0219-03.jpg');
   background-size: cover;
   background-position: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -85,7 +84,7 @@ body {
 /* Footer always at the bottom */
 footer {
   margin-top: auto;
-  background-color: #4E342E; /* Rich Brown */
+  background-color: #1a1a1a; 
   color: #D7CCC8; /* Soft Beige */
   padding: 1rem 0;
   text-align: center;

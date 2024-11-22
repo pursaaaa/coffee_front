@@ -1,0 +1,33 @@
+.hero-section {
+    min-height: 100vh; /* Full viewport height */
+    background-color: #1a1a1a; /* Dark background */
+    display: flex;
+    align-items: center;
+    padding: 0 15%; /* Add some padding for spacing */
+}
+
+.btn-lg {
+    background-color: whitesmoke;
+    color: #1a1a1a; 
+    transition: all 0.3s ease; /* Smooth transition for the hover effect */
+}
+
+/* Button Hover Effect */
+.btn-lg:hover {
+    background-color: whitesmoke;
+    color: #86592d; 
+    transform: scale(1.05);
+}
+
+.hero-text {
+    color: whitesmoke;
+}
+.hero-text h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+.hero-text p {
+    font-size: 16px;
+    font-weight: 200;
+}
+

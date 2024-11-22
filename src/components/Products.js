@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import config from '../config';
+import '../Products.css';
 
 function Products() {
     const [product, setProducts] = useState([]);
@@ -30,36 +31,66 @@ function Products() {
         }
     }
 
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+
+        // Cleanup the observer when the component unmounts
+        return () => {
+            hiddenElements.forEach((el) => observer.unobserve(el));
+        };
+    }, [product]);
+
     function showImage(item) {
         if (item.img !== undefined) {
             let imgPath = config.apiPath + '/uploads/' + item.img;
 
             if (item.img === "") imgPath = "default_image.png"
 
-            return <img className='card-img-top object-fit-contain mt-3' height='200px' src={imgPath} alt={item.name} />
+            return <img className='card-img-top object-fit-contain mt-3' height='250px' width='250px' src={imgPath} alt={item.name} />
         }
     }
 
     return (
-        <section id="products" className="products-section py-5" style={{ backgroundColor: '#FAF3E0' }}>
+        <div id="products" className="products-section py-5">
             <div className="container">
-                <h2 className="text-center mb-5" style={{ color: '#4E342E' }}>Our Coffee Beans</h2>
+                <h1 className="text-center mb-4" style={{ color: '#86592d' }}>
+                    Our Latest Products!
+                </h1>
                 <div className="row">
-                    {product.length > 0 ? product.map(item =>
-                        <div className="col-md-4 mb-4" key={item.id}>
-                            <div className="card shadow-sm" style={{ borderColor: '#D7CCC8' }}>
-                                {showImage(item)}
-                                <div className="card-body">
-                                    <h5 className="card-title">{item.name}</h5>
-                                    <p className="card-text">{item.price.toLocaleString('th-TH')}</p>
-                                    <a href="/" className="btn btn-warning">Buy now</a>
+                    {product.length > 0 ? (
+                        product.map((item) => (
+                            <div className="col-md-4 mb-4" key={item.id}>
+                                <div className="card hidden" style={{ background: '#1a1a1a', border: 'none' }}>
+                                    <a href={`/product/${item.id}`}>
+                                        {showImage(item)}
+                                    </a>
+                                    <div className="card-body" style={{ color: 'whitesmoke' }}>
+                                        <a href={`/product/${item.id}`}
+                                            style={{ textDecoration: 'none', color: 'whitesmoke' }}>
+                                            <h5 className="card-title">{item.name}</h5>
+                                            <h6 className="card-text">{item.price.toLocaleString('th-TH')}</h6>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ) : (<p className="text-center">No products available.</p>)}
+                        ))
+                    ) : (
+                        <p className="text-center">No products available.</p>
+                    )}
                 </div>
             </div>
-        </section>
+        </div>
     );
 }
 

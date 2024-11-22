@@ -1,12 +1,35 @@
 import React from 'react';
+import '../hero.css';
 
 function Hero() {
     return (
-        <section id="hero" className="hero-section text-center text-white d-flex align-items-center" style={{ backgroundColor: '#4E342E', minHeight: '100vh' }}>
-            <div className="container">
-                <h1 className="display-4 fw-bold">Experience the Richness of Coffee</h1>
-                <p className="lead">Hand-picked, roasted to perfection, delivered to your door.</p>
-                <a href="#products" className="btn btn-warning btn-lg mt-4">Shop Now</a>
+        <section
+            id="hero"
+            className="hero-section d-flex align-items-center">
+            <div className="container mt-5">
+                <div className="row justify-content-center align-items-center">
+                    
+                    <div className="hero-text col-12 col-lg-6 text-start text-lg-start mb-4 mb-lg-0">
+                        <h1 className="display-4">
+                            Welcome to the Best Coffee Shop in Town
+                        </h1>
+                        <p className="lead">
+                            Discover the finest coffee blends and experience the perfect brew. From aromatic espressos to creamy
+                            lattes, we’ve got it all. Your coffee journey starts here.
+                        </p>
+                        <a href="#products" className="btn btn-lg mt-3">
+                            Latest Product
+                        </a>
+                    </div>
+
+                    <div className="col-12 col-lg-6 text-center">
+                        <img
+                            src="/farmer.png"
+                            alt="Coffee"
+                            className="img-fluid"
+                        />
+                    </div>
+                </div>
             </div>
         </section>
     );

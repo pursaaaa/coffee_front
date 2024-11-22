@@ -1,48 +1,61 @@
-/* Navbar Background Color */
-.bg-coffee {
-    background-color: #4E342E; /* Rich Brown */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+body {
+    background-color: #1a1a1a;
 }
 
-/* Navbar Brand Styling */
+.offcanvas {
+    background-color: #1a1a1a; /* Your desired background color */
+    color: whitesmoke; 
+}
+
+.navbar-toggler {
+    background-color: whitesmoke; /* Add white background */
+}
+
+
+.navbar {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 9%;
+    background: transparent;    
+}
+
+.navlist {
+    justify-content: flex-end; /* Ensure alignment to the right */
+    margin-left: auto; /* Push the navigation to the right */
+    display: flex;
+    gap: 20px; /* Add spacing between links */
+}
+
+
 .navbar-brand {
-    font-family: 'Georgia', serif;
-    letter-spacing: 1px;
-    transition: transform 0.3s ease;
+    font-weight: 700;
+    color:#86592d;
+    font-size: 30px;
+    transition: 0.3s color;
 }
 
-.navbar-brand:hover {
-    transform: scale(1.1);
+.nav-link {
+    color: whitesmoke;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.55s ease;
 }
 
-/* Navbar Links */
-.navbar-nav .nav-link {
-    font-size: 1.1rem;
-    border-radius: 10px;
-    color: #D7CCC8; /* Soft Beige */
-    transition: background-color 0.3s ease, color 0.3s ease;
+.nav-link:hover {
+    color: whitesmoke;
+    border-bottom: 2px solid #86592d;
 }
 
-/* Hover Effect */
-.navbar-nav .nav-link:hover {
-    background-color: #FFCA28; /* Bright Yellow */
-    color: #4E342E; /* Rich Brown */
-    border-radius: 10px;
-}
-
-/* Active Link */
 .navbar-nav .nav-item.active .nav-link {
-    background-color: #FFCA28; /* Bright Yellow */
-    color: #4E342E; /* Rich Brown */
     font-weight: bold;
-    border-radius: 10px;
-}
-
-/* Spacing and Alignment */
-.navbar-nav .nav-item {
-    margin: 0 10px;
-}
-
-/* Toggler Icon Color */
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='%23D7CCC8'%3E%3Cpath stroke='rgba(0,0,0,.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    border-bottom: 2px solid #86592d;
 }
