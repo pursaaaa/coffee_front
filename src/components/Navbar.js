@@ -8,7 +8,7 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-coffee">
             <div className="container">
-                <a className="navbar-brand text-light fs-3 fw-bold" href="/home">CoffeeBeans</a>
+                <a className="navbar-brand text-light fs-3 fw-bold" href="/">Coffee</a>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -22,8 +22,8 @@ function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto align-items-center">
-                        <li className={`nav-item ${location.pathname === '/home' ? 'active' : ''}`}>
-                            <Link to="/home" className="nav-link px-3">Home</Link>
+                        <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+                            <Link to="/" className="nav-link px-3">Home</Link>
                         </li>
                         <li className={`nav-item ${location.pathname === '/shop' ? 'active' : ''}`}>
                             <Link to="/shop" className="nav-link px-3">Shop</Link>
