@@ -8,7 +8,7 @@ function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-coffee">
             <div className="container">
-                <a className="navbar-brand text-light fs-3 fw-bold" href="/">Coffee</a>
+                <a className="navbar-brand text-light fs-3 fw-bold" href="/">CoffeeBoon</a>
                 <button
                     className="navbar-toggler"
                     type="button"
