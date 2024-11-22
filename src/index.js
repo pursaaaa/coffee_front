@@ -12,12 +12,12 @@ import Contact from './pages/Contact';
 
 const router = createBrowserRouter([
   {
-    path: '/shop',
-    element: <Index />
+    path: '/',
+    element: <Home />
   },
   {
-    path: '/home',
-    element: <Home />
+    path: '/shop',
+    element: <Index />
   },
   {
     path: '/contact',
