@@ -1,6 +1,6 @@
 .hero-section {
     min-height: 75vh; /* Full viewport height */
-    background-color: #59270f; /* Dark background */
+    background-color: whitesmoke; /* Dark background */
     display: flex;
     align-items: center;
     padding: 0 15%; /* Add some padding for spacing */
@@ -20,7 +20,7 @@
 }
 
 .hero-text {
-    color: 		#ffe5ad;
+    color: 		#1a1919;
 }
 .hero-text h1 {
     font-size: 36px;

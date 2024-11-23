@@ -43,7 +43,7 @@ function Navbar() {
 
   return (
 
-    <nav className="navbar navbar-expand-lg fixed-top" data-aos='zoom-out' data-aos-duration='900'>
+    <nav className="navbar navbar-expand-lg fixed-top">
       <div className="container">
         <a className="navbar-brand" href="/">Coffee</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -60,20 +60,20 @@ function Navbar() {
           <div className="offcanvas-body">
             <ul className="navbar-nav ms-auto navlist">
               <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
-                <Link to="/" className="nav-link px-3">หน้าแรก</Link>
+                <Link to="/" className="nav-link">หน้าแรก</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/shop' ? 'active' : ''}`}>
-                <Link to="/shop" className="nav-link px-3">ร้านค้า</Link>
+                <Link to="/shop" className="nav-link">ร้านค้า</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/people' ? 'active' : ''}`}>
-                <Link to="/people" className="nav-link px-3">ผู้คน</Link>
+                <Link to="/people" className="nav-link">ผู้คน</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
-                <Link to="/contact" className="nav-link px-3">เกี่ยวกับเรา</Link>
+                <Link to="/contact" className="nav-link">เกี่ยวกับเรา</Link>
               </li>
               {!isLoggedIn ? (
-                <li className={`nav-item bg-warning bg-gradient ${location.pathname === '/signin' ? 'active' : ''}`}>
-                  <Link to="/signin" className="nav-link px-3 text-dark" style={{ backgroundColor: '#eab94c' }}>
+                <li className={`nav-item ${location.pathname === '/signin' ? 'active' : ''}`}>
+                  <Link to="/signin" className="nav-link px-3 text-dark">
                     เข้าสู่ระบบ
                   </Link>
                 </li>
@@ -89,7 +89,7 @@ function Navbar() {
                 </li>
               )}
               <li>
-                <i className='fa fa-shopping-cart mt-2 text-light'> 0</i>
+                <i className='fa fa-shopping-cart mt-2 text-dark'> 0</i>
               </li>
             </ul>
           </div>

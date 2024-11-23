@@ -32,8 +32,8 @@ function Hero() {
     return (
         <section
             id="hero"
-            className="hero-section d-flex align-items-center">
-            <div className="container mt-5">
+            className="hero-section d-flex align-items-center my-5">
+            <div className="container">
                 <div className="row justify-content-center align-items-center">
                     
                    

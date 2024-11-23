@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'
+import '../styles/Footer.css'
 
 function Footer() {
     return (
@@ -7,9 +7,9 @@ function Footer() {
             <div className="container">
                 <p>© 2024 CoffeeBeans. All Rights Reserved.</p>
                 <div>
-                    <a href="https://www.facebook.com/pursa.kaewsootthipol" target='_blank' rel="noreferrer" className="text-primary mx-2">Facebook</a>
-                    <a href="https://www.instagram.com/pursapung/" target='_blank' rel="noreferrer" className="text-primary mx-2">Instagram</a>
-                    <a href="https:/www.x.com/" target='_blank' rel="noreferrer" className="text-primary mx-2">X</a>
+                    <a href="https://www.facebook.com/pursa.kaewsootthipol" target='_blank' rel="noreferrer" className="fa-brands fa-square-facebook"></a>
+                    <a href="https://www.instagram.com/pursapung/" target='_blank' rel="noreferrer" className="fa-brands fa-square-instagram"></a>
+                    <a href="https:/www.x.com/" target='_blank' rel="noreferrer" className="fa-brands fa-twitter"></a>
                 </div>
             </div>
         </footer>

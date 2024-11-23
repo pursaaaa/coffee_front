@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: whitesmoke;
 }
 
 /* Ensure the body and html take full height */
@@ -58,31 +59,4 @@ body {
   to {
     transform: rotate(360deg);
   }
-}
-
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.hero-section {
-  background-size: cover;
-  background-position: center;
-}
-
-.products-section .card {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* Footer always at the bottom */
-footer {
-  margin-top: auto;
-  background-color: 		#59270f; 
-  color: 	#ffe5ad;
-  padding: 1rem 0;
-  text-align: center;
-  font-size: 1rem;
-  text-decoration: none;
-
 }
