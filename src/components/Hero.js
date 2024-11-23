@@ -9,7 +9,8 @@ function Hero() {
             <div className="container mt-5">
                 <div className="row justify-content-center align-items-center">
                     
-                    <div className="hero-text col-12 col-lg-6 text-start text-lg-start mb-4 mb-lg-0">
+                   
+                    <div className="hero-text col-12 col-lg-6 text-start text-lg-start mb-4 mb-lg-0" data-aos='fade-right' data-aos-duration='1400'>
                         <h1 className="display-4">
                             Welcome to the Best Coffee Shop in Town
                         </h1>
@@ -22,7 +23,8 @@ function Hero() {
                         </a>
                     </div>
 
-                    <div className="col-12 col-lg-6 text-center">
+                   
+                    <div className="col-12 col-lg-6 text-center" data-aos='fade-up-left' data-aos-duration='1400' >
                         <img
                             src="/farmer.png"
                             alt="Coffee"

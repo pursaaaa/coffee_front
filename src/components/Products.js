@@ -31,26 +31,6 @@ function Products() {
         }
     }
 
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                } else {
-                    entry.target.classList.remove('show');
-                }
-            });
-        });
-
-        const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => observer.observe(el));
-
-        // Cleanup the observer when the component unmounts
-        return () => {
-            hiddenElements.forEach((el) => observer.unobserve(el));
-        };
-    }, [product]);
-
     function showImage(item) {
         if (item.img !== undefined) {
             let imgPath = config.apiPath + '/uploads/' + item.img;
@@ -64,14 +44,14 @@ function Products() {
     return (
         <div id="products" className="products-section py-5">
             <div className="container">
-                <h1 className="text-center mb-4" style={{ color: '#86592d' }}>
-                    Our Latest Products!
+                <h1 className="text-center mb-4" data-aos='zoom-in' data-aos-duration='1400' style={{ color: '#86592d' }}>
+                    Latest Products!
                 </h1>
                 <div className="row">
                     {product.length > 0 ? (
                         product.map((item) => (
                             <div className="col-md-4 mb-4" key={item.id}>
-                                <div className="card hidden" style={{ background: '#1a1a1a', border: 'none' }}>
+                                <div className="card" data-aos='zoom-in' data-aos-duration='1400' style={{ background: '#1a1a1a', border: 'none' }}>
                                     <a href={`/product/${item.id}`}>
                                         {showImage(item)}
                                     </a>

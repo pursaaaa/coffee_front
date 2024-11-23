@@ -7,7 +7,7 @@ function Navbar() {
 
     return (
 
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg fixed-top" data-aos='zoom-out' data-aos-duration='900'>
         <div class="container">
           <a class="navbar-brand" href="/">Coffee</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">

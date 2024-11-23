@@ -1,4 +1,4 @@
-.hidden {
+/* .hidden {
     opacity: 0;
     filter: blur(5px);
     transform: translateX(-100%);
@@ -16,10 +16,4 @@
         transition: none;
     }
 }
-
-#products {
-    display: grid;
-    place-items: center;
-    align-items: center;
-    min-height: 100vh;
-}
+ */
