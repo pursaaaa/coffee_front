@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Contact.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -6,7 +6,15 @@ import Footer from '../components/Footer';
 import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function Contact() {
+
+    useEffect(() => {
+        AOS.init()
+    }, []);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -51,7 +59,7 @@ function Contact() {
         <Navbar />
         <section className="contact-page">
             <div className="container">
-                <p className="text-center mb-5 fw-bold fs-1">Get in Touch with Us!</p>
+                <p className="text-center mb-5 fw-bold fs-1">ติดต่อกับเรา</p>
                 <div className="row">
                     <div className="col-md-6 mb-4">
                         <div className="contact-form p-4 shadow">
@@ -95,7 +103,7 @@ function Contact() {
                                     ></textarea>
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">
-                                    Send Message
+                                    ส่งข้อความ
                                 </button>
                             </form>
                         </div>

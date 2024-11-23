@@ -14,6 +14,9 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 function Index() {
     const [products, setProducts] = useState([]);
@@ -35,6 +38,7 @@ function Index() {
     useEffect(() => {
         fetchData();
         fetchDataFromLocal();
+        AOS.init()
     }, []);
 
     const fetchData = async () => {
@@ -274,9 +278,9 @@ function Index() {
                 <table className='table table-bordered table-striped'>
                     <thead>
                         <tr>
-                            <th>name</th>
-                            <th className='text-end'>price</th>
-                            <th className='text-end'>qty</th>
+                            <th>ชื่อสินค้า</th>
+                            <th className='text-end'>ราคา</th>
+                            <th className='text-end'>จำนวน</th>
                             <th width='60px'></th>
                         </tr>
                     </thead>
@@ -327,7 +331,7 @@ function Index() {
                         <input className='form-control' type='time' value={payTime} onChange={e => setPayTime(e.target.value)} />
                     </div>
                     <button className='btn btn-primary mt-3' onClick={handleSave}>
-                        <i className='fa fa-check mr-2'></i>ยืนยันการซื้อ
+                        <i className='fa fa-check mr-2'></i> ยืนยันการซื้อ
                     </button>
                 </div>
             </MyModal>

@@ -44,8 +44,8 @@ function Products() {
     return (
         <div id="products" className="products-section py-5">
             <div className="container">
-                <h1 className="text-center mb-4" data-aos='zoom-in' data-aos-duration='1400' style={{ color: '#86592d' }}>
-                    Latest Products!
+                <h1 className="text-center mb-4" data-aos='zoom-in' data-aos-duration='1400' style={{ color: '#eab94c' }}>
+                    สินค้าล่าสุด!
                 </h1>
                 <div className="row">
                     {product.length > 0 ? (
@@ -59,7 +59,7 @@ function Products() {
                                         <a href={`/product/${item.id}`}
                                             style={{ textDecoration: 'none', color: 'whitesmoke' }}>
                                             <h5 className="card-title">{item.name}</h5>
-                                            <h6 className="card-text">{item.price.toLocaleString('th-TH')}</h6>
+                                            <h6 className="card-text">{item.price.toLocaleString('th-TH')} บาท</h6>
                                         </a>
                                     </div>
                                 </div>

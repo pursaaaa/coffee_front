@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Register.css';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import config from '../config';
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -31,7 +34,7 @@ function Register() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.currentTarget;
 
@@ -39,9 +42,24 @@ function Register() {
         if (form.checkValidity() === false || !passwordMatch) {
             e.stopPropagation();
         } else {
-            // Submit form logic here (e.g., API call)
-            console.log('Form data:', formData);
-            navigate('/signin'); // Redirect to sign-in page after successful registration
+            try {
+                // Submit form data to API
+                const res = await axios.post(config.apiPath + '/user/register', formData);
+                Swal.fire({
+                    title: 'สำเร็จ',
+                    text: 'สมัครสมาชิกสำเร็จ',
+                    icon: 'success',
+                });
+
+                // Navigate to the Sign In page
+                navigate('/signin');
+            } catch (error) {
+                Swal.fire({
+                    title: 'ผิดพลาด',
+                    text: error.res?.data?.message || 'Something went wrong. Please try again.',
+                    icon: 'error',
+                });
+            }
         }
 
         setValidated(true);
@@ -52,7 +70,7 @@ function Register() {
             <div className="register-container d-flex">
                 <div className="card register-card shadow-sm">
                     <h3 className="text-center mb-4">สมัครสมาชิก</h3>
-                    <form noValidate onSubmit={handleSubmit} className={validated ? 'was-validated' : ''}>
+                    <form noValidate className={validated ? 'was-validated' : ''}>
                         <div className="row">
                             <div className="col-md-6 mb-3">
                                 <label htmlFor="fullname" className="form-label">ชื่อจริง</label>
@@ -159,7 +177,7 @@ function Register() {
                                     : 'Please confirm your password.'}
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary w-100">สมัครสมาชิก</button>
+                        <button type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>สมัครสมาชิก</button>
                     </form>
                     <div className="text-center mt-3">
                         <span>มีบัญชีผู้ใช้อยู่แล้ว? </span>

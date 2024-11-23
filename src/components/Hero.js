@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Hero.css';
+import axios from 'axios';
+import config from '../config';
+
 
 function Hero() {
+    const [fullname, setFullname] = useState(''); // State to hold the fetched full name
+
+    useEffect(() => {
+        fetchFullname(); // Fetch full name when the component mounts
+    }, []);
+
+    const fetchFullname = async () => {
+        try {
+            // Replace with your actual API endpoint
+            const token = localStorage.getItem('token'); // Get the token from localStorage
+            const response = await axios.get(config.apiPath + '/user/data', {
+                headers: {
+                    Authorization: token, // Pass token in headers for authentication
+                },
+            });
+
+            // Assume the API returns { name: "John Doe" }
+            setFullname(response.data.fullname);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    };
+
+
     return (
         <section
             id="hero"
@@ -12,14 +39,14 @@ function Hero() {
                    
                     <div className="hero-text col-12 col-lg-6 text-start text-lg-start mb-4 mb-lg-0" data-aos='fade-right' data-aos-duration='1400'>
                         <h1 className="display-4">
-                            Welcome to the Best Coffee Shop in Town
+                            ยินดีต้อนรับ คุณ {fullname} สู่ร้านกาแฟที่ดีที่สุดในเมืองนี้!
                         </h1>
                         <p className="lead">
                             Discover the finest coffee blends and experience the perfect brew. From aromatic espressos to creamy
                             lattes, we’ve got it all. Your coffee journey starts here.
                         </p>
                         <a href="#products" className="btn btn-lg mt-3">
-                            Latest Product
+                            สินค้าล่าสุดของเรา
                         </a>
                     </div>
 

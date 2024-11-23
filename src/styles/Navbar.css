@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 
-body {
-    background-color: #1a1a1a;
-}
 
 .offcanvas {
     background-color: #1a1a1a; /* Your desired background color */
@@ -38,13 +35,13 @@ body {
 
 .navbar-brand {
     font-weight: 700;
-    color:#86592d;
+    color:		#eab94c;
     font-size: 30px;
     transition: 0.3s color;
 }
 
 .nav-link {
-    color: whitesmoke;
+    color: 		#ffe5ad;
     font-size: 15px;
     font-weight: 600;
     transition: all 0.55s ease;

@@ -68,7 +68,6 @@ body {
 .hero-section {
   background-size: cover;
   background-position: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .products-section .card {
@@ -79,10 +78,11 @@ body {
 /* Footer always at the bottom */
 footer {
   margin-top: auto;
-  background-color: #232323; 
-  color: #fff;
+  background-color: 		#59270f; 
+  color: 	#ffe5ad;
   padding: 1rem 0;
   text-align: center;
   font-size: 1rem;
   text-decoration: none;
+
 }

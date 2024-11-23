@@ -1,7 +1,11 @@
 /* Contact Page */
 .contact-page {
-    background-color: #FAF3E0; /* Light Cream */
-    padding: 4rem 0;
+    background-color: #59270f;
+    padding: 2rem 0;
+}
+
+.contact-page p {
+    color: #eab94c;
 }
 
 /* Contact Form */
@@ -11,6 +15,8 @@
     padding: 2rem;
     border: 1px solid #D7CCC8; /* Soft Beige */
 }
+
+
 
 .contact-form h4 {
     color: #4E342E; /* Rich Brown */

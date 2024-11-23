@@ -1,24 +1,52 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/SignIn.css';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import config from '../config';
 
 function SignIn() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Add API call or authentication logic here
-        console.log('Username:', username);
-        console.log('Password:', password);
+
+        try {
+            // Call the backend API for sign-in
+            const res = await axios.post(config.apiPath + '/user/sign-in', {
+                username,
+                password,
+            });
+
+            // Store the token in localStorage
+            localStorage.setItem('token', res.data.token);
+
+            // Show success alert
+            Swal.fire({
+                title: 'เข้าสู่ระบบสำเร็จ',
+                text: 'Welcome back!',
+                icon: 'success',
+            });
+
+            // Navigate to the home page
+            navigate('/');
+        } catch (error) {
+            // Show error alert
+            Swal.fire({
+                title: 'เข้าสู่ระบบไม่สำเร็จ',
+                text: error.response?.data?.message || 'Invalid username or password.',
+                icon: 'error',
+            });
+        }
     };
 
     return (
         <div className="signin-container d-flex align-items-center justify-content-center">
             <div className="card signin-card shadow-sm">
                 <h3 className="text-center mb-4">เข้าสู่ระบบ</h3>
-                <form onSubmit={handleSubmit}>
+                <form>
                     <div className="mb-3">
                         <label htmlFor="username" className="form-label">ชื่อผู้ใช้</label>
                         <input
@@ -43,7 +71,7 @@ function SignIn() {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100">เข้าสู่ระบบ</button>
+                    <button type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>เข้าสู่ระบบ</button>
                 </form>
                 <div className="text-center mt-3">
                     <span>ไม่มีบัญชีผู้ใช้? </span>
