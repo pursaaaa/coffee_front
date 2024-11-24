@@ -3,29 +3,29 @@
 /* Fullscreen Container */
 .signin-container {
     height: 75vh;
-    background-color: #ffe5ad; /* Light Cream */
+    background-color: whitesmoke; /* Light Cream */
 }
 
 /* Card Styling */
 .signin-card {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
     padding: 2rem;
     border-radius: 8px;
-    background-color: #FAF3E0;
-    border: 1px solid #D7CCC8; /* Soft Beige */
+    background-color: white;
+    border: 1px solid none; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Form Label */
 .form-label {
-    color: #4E342E; /* Rich Brown */
+    color: #1a1919;
     font-weight: bold;
 }
 
 /* Input Fields */
 .form-control {
     border-radius: 5px;
-    border: 1px solid #D7CCC8; /* Soft Beige */
     transition: border-color 0.3s ease;
 }
 
@@ -35,16 +35,9 @@
 }
 
 /* Submit Button */
-.btn-primary {
-    background-color: #FFCA28; /* Bright Yellow */
+.btn-light {
     border: none;
-    color: #4E342E; /* Rich Brown */
     transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #E6B400; /* Slightly darker yellow */
-    color: #fff;
 }
 
 /* Link Button */

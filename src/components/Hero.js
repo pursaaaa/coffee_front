@@ -38,10 +38,10 @@ function Hero() {
                     
                    
                     <div className="hero-text col-12 col-lg-6 text-start text-lg-start mb-4 mb-lg-0" data-aos='fade-right' data-aos-duration='1400'>
-                        <h1 className="display-4">
-                            ยินดีต้อนรับ คุณ {fullname} สู่ร้านกาแฟที่ดีที่สุดในเมืองนี้!
+                        <h1>
+                            ยินดีต้อนรับ สู่ร้านกาแฟที่ดีที่สุดในเมืองนี้!
                         </h1>
-                        <p className="lead">
+                        <p className="info-text">
                             Discover the finest coffee blends and experience the perfect brew. From aromatic espressos to creamy
                             lattes, we’ve got it all. Your coffee journey starts here.
                         </p>

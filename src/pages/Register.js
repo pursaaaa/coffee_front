@@ -4,6 +4,7 @@ import '../styles/Register.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import config from '../config';
+import Navbar from '../components/Navbar';
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -67,6 +68,7 @@ function Register() {
 
     return (
         <>
+        <Navbar />
             <div className="register-container d-flex">
                 <div className="card register-card shadow-sm">
                     <h3 className="text-center mb-4">สมัครสมาชิก</h3>
@@ -177,7 +179,7 @@ function Register() {
                                     : 'Please confirm your password.'}
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>สมัครสมาชิก</button>
+                        <button type="submit" className="btn btn-light w-100" onClick={handleSubmit}>สมัครสมาชิก</button>
                     </form>
                     <div className="text-center mt-3">
                         <span>มีบัญชีผู้ใช้อยู่แล้ว? </span>

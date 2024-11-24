@@ -2,12 +2,11 @@
 
 /* Ensure the container takes up the full viewport height */
 .register-container {
-    height: 110vh;
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    background-color: #ffe5ad; /* Light Cream */
+    background-color: whitesmoke; 
     padding: 20px; /* Ensure no content is cut off on small screens */
     box-sizing: border-box; /* Include padding in height calculation */
 }
@@ -18,46 +17,33 @@
     max-width: 500px;
     padding: 2rem;
     border-radius: 8px;
-    background-color: #FAF3E0;
-    border: 1px solid #D7CCC8; /* Soft Beige */
+    background-color: white;
+    border: 1px solid none; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Form Label */
 .form-label {
-    color: #4E342E;
-    /* Rich Brown */
+    color: #1a1919;
     font-weight: bold;
 }
 
 /* Input Fields */
 .form-control {
     border-radius: 5px;
-    border: 1px solid #D7CCC8;
-    /* Soft Beige */
+    border: 1px solid none;
     transition: border-color 0.3s ease;
 }
 
 .form-control:focus {
-    border-color: #FFCA28;
-    /* Bright Yellow */
+    border-color: #1a1919;
     box-shadow: none;
 }
 
 /* Submit Button */
-.btn-primary {
-    background-color: #FFCA28;
-    /* Bright Yellow */
+.btn-secondary {
     border: none;
-    color: #4E342E;
-    /* Rich Brown */
     transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #E6B400;
-    /* Slightly darker yellow */
-    color: #fff;
 }
 
 /* Link Button */

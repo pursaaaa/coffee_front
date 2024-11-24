@@ -4,6 +4,7 @@ import '../styles/SignIn.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import config from '../config';
+import Navbar from '../components/Navbar';
 
 function SignIn() {
     const [username, setUsername] = useState('');
@@ -43,6 +44,8 @@ function SignIn() {
     };
 
     return (
+        <>
+        <Navbar/>
         <div className="signin-container d-flex align-items-center justify-content-center">
             <div className="card signin-card shadow-sm">
                 <h3 className="text-center mb-4">เข้าสู่ระบบ</h3>
@@ -71,7 +74,7 @@ function SignIn() {
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>เข้าสู่ระบบ</button>
+                    <button type="submit" className="btn btn-light w-100" onClick={handleSubmit}>เข้าสู่ระบบ</button>
                 </form>
                 <div className="text-center mt-3">
                     <span>ไม่มีบัญชีผู้ใช้? </span>
@@ -84,6 +87,7 @@ function SignIn() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

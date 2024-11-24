@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Index from './pages/Index';
-import './App.css';
 
 import {
   createBrowserRouter,
@@ -12,6 +11,7 @@ import Home from './pages/Home';
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import Register from './pages/Register';
+import ProductDetail from './pages/ProductDetail';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/contact',
     element: <Contact />
+  },
+  {
+    path: '/productDetail',
+    element: <ProductDetail/>
   },
   {
     path: '/signin',

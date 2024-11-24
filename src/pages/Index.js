@@ -17,6 +17,8 @@ import Footer from '../components/Footer';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+import '../styles/Shop.css'
+
 
 function Index() {
     const [products, setProducts] = useState([]);
@@ -250,22 +252,22 @@ function Index() {
                     </button>
                     ชิ้น
                 </div>
-                <div className='clearfix'></div>
+                
 
                 <div className='row'>
                     {products.length > 0 ? products.map(item =>
-                        <div className='col-3 mt-3' key={item.id}>
+                        <div className='col-6 col-md-4 col-lg-3 mt-3' key={item.id}>
                             <div className='card'>
                                 {showImage(item)}
                                 <div className='card-body'>
                                     <div>{item.name}</div>
                                     <div>{item.price.toLocaleString('th-TH')}</div>
-                                    <div className='text-center'>
+                                    {/* <div className='text-center'>
                                         <button className='btn btn-primary' onClick={e => addToCart(item)}>
                                             <i className='fa fa-shopping-cart mr-2'></i>
                                             Add to Cart
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

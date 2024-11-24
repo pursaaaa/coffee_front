@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 .hero-section {
     min-height: 75vh; /* Full viewport height */
     background-color: whitesmoke; /* Dark background */
@@ -19,17 +21,21 @@
     transform: scale(1.05);
 }
 
+.info-text {
+    font-family: Poppins, sans-serif;
+}
+
 .hero-text {
     color: 		#1a1919;
-}
-.hero-text h1 {
-    font-size: 36px;
-    font-weight: 700;
-}
-.hero-text p {
     font-size: 16px;
     font-weight: 200;
 }
+
+.hero-text h1 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
 
 
 

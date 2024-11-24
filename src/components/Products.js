@@ -44,21 +44,21 @@ function Products() {
     return (
         <div id="products" className="products-section py-5">
             <div className="container">
-                <h1 className="text-center mb-4" data-aos='zoom-in' data-aos-duration='1400'>
+                <h2 className="text-center mb-4" data-aos='zoom-in' data-aos-duration='1400'>
                     สินค้าล่าสุด!
-                </h1>
+                </h2>
                 <div className="row">
                     {product.length > 0 ? (
                         product.map((item) => (
                             <div className="col-md-4 mb-4" key={item.id}>
-                                <div className="card" data-aos='zoom-in' data-aos-duration='1400' style={{ background: '#1a1a1a', border: 'none' }}>
+                                <div className="card" data-aos='zoom-in' data-aos-duration='1400'>
                                     <a href={`/product/${item.id}`}>
                                         {showImage(item)}
                                     </a>
                                     <div className="card-body">
                                         <a href={`/product/${item.id}`}>
-                                            <h5 className="card-title">{item.name}</h5>
-                                            <h6 className="card-text">{item.price.toLocaleString('th-TH')} บาท</h6>
+                                            <p className="card-title">{item.name}</p>
+                                            <p className="card-text">{item.price.toLocaleString('th-TH')} บาท</p>
                                         </a>
                                     </div>
                                 </div>

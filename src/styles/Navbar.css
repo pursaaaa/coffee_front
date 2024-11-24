@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-
+body {  /* ทุกเพจ */
+    margin-top: 115px; 
+}
 
 .offcanvas {
-    background-color: white; /* Your desired background color */
     color: whitesmoke; 
 }
 
@@ -26,6 +27,7 @@
     display: flex;
     gap: 20px; 
     text-shadow: 0px 2px 2px rgba(0,0,0,.29);
+    font-family: Poppins, sans-serif;
 }
 
 .navbar-brand {
@@ -37,14 +39,13 @@
 }
 
 .nav-link {
-    color: 		#1a1919;
+    color: #1a1919;
     font-size: 15px;
-    font-weight: 400;
     transition: all 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #888888;
+    opacity: 0.5;
 }
 
 .navbar-nav .nav-item.active .nav-link {
