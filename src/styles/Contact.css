@@ -1,6 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.gallery {
+    overflow: hidden;
+    padding: 10px 0 0 0;
+    white-space: nowrap;
+}
+.img-slide {
+    display: inline-block;
+    animation: 100s slide infinite linear;
+}
+.img-slide img {
+    height: 245px;
+    width: 350px;
+    object-fit: cover;
+}
+.gallery:hover .img-slide {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.aboutus-content {
+    max-width: 430px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.aboutus-content p {
+    font-family: Poppins,sans-serif;
+    text-align: left;
+}
+
+
 /* Contact Page */
 .contact-page {
-    background-color: whitesmoke;
+    background-color: white;
     padding: 2rem 0;
 }
 
@@ -13,29 +54,20 @@
     background-color: #fff;
     border-radius: 8px;
     padding: 2rem;
-    border: 1px solid #D7CCC8; /* Soft Beige */
-}
-
-
-
-.contact-form h4 {
-    color: #4E342E; /* Rich Brown */
-    font-weight: bold;
+    border: none;
 }
 
 .contact-form .form-control {
     border-radius: 5px;
-    border: 1px solid #D7CCC8; /* Soft Beige */
 }
 
 .contact-form .form-control:focus {
-    border-color: #FFCA28; /* Bright Yellow */
+    border-color: #1a1919; /* Bright Yellow */
     box-shadow: none;
 }
 
 /* Submit Button */
 .contact-form .btn-primary {
-    background-color: #885d41; /* Bright Yellow */
     border: none;
     color: whitesmoke; /* Rich Brown */
     transition: background-color 0.3s ease;
@@ -51,5 +83,5 @@
     border-radius: 8px;
     overflow: hidden;
     background-color: #fff;
-    border: 1px solid #D7CCC8; /* Soft Beige */
+    border: none;
 }

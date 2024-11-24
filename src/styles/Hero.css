@@ -2,14 +2,13 @@
 
 .hero-section {
     min-height: 75vh; /* Full viewport height */
-    background-color: whitesmoke; /* Dark background */
+    background-color: white; 
     display: flex;
     align-items: center;
-    padding: 0 15%; /* Add some padding for spacing */
+    padding: 0 15%;
 }
 
 .btn-lg {
-    background-color: whitesmoke;
     color: #1a1a1a; 
     transition: all 0.3s ease; /* Smooth transition for the hover effect */
 }
@@ -17,7 +16,6 @@
 /* Button Hover Effect */
 .btn-lg:hover {
     background-color: whitesmoke;
-    color: #86592d; 
     transform: scale(1.05);
 }
 
