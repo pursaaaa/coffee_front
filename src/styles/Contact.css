@@ -1,11 +1,11 @@
 /* Contact Page */
 .contact-page {
-    background-color: #59270f;
+    background-color: whitesmoke;
     padding: 2rem 0;
 }
 
 .contact-page p {
-    color: #eab94c;
+    color: #333;
 }
 
 /* Contact Form */
@@ -35,14 +35,14 @@
 
 /* Submit Button */
 .contact-form .btn-primary {
-    background-color: #FFCA28; /* Bright Yellow */
+    background-color: #885d41; /* Bright Yellow */
     border: none;
-    color: #4E342E; /* Rich Brown */
+    color: whitesmoke; /* Rich Brown */
     transition: background-color 0.3s ease;
 }
 
 .contact-form .btn-primary:hover {
-    background-color: #E6B400; /* Slightly darker yellow */
+    background-color: #61422e; /* Slightly darker yellow */
     color: #fff;
 }
 

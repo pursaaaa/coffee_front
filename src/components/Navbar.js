@@ -72,16 +72,17 @@ function Navbar() {
                 <Link to="/contact" className="nav-link">เกี่ยวกับเรา</Link>
               </li>
               {!isLoggedIn ? (
-                <li className={`nav-item ${location.pathname === '/signin' ? 'active' : ''}`}>
-                  <Link to="/signin" className="nav-link px-3 text-dark">
+                <li className={`nav-item rounded-3  ${location.pathname === '/signin' ? 'active' : ''}`}
+                  style={{ backgroundColor: '	#885d41', border: 'none' }}>
+                  <Link to="/signin" className="nav-link px-3 text-white">
                     เข้าสู่ระบบ
                   </Link>
                 </li>
               ) : (
                 <li className="nav-item">
                   <button
-                    className="btn btn-warning bg-gradient text-dark px-3"
-                    style={{ backgroundColor: '#eab94c', border: 'none' }}
+                    className="btn text-white px-3"
+                    style={{ backgroundColor: '	#885d41', border: 'none' }}
                     onClick={handleSignOut}
                   >
                     ออกจากระบบ
