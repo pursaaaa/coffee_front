@@ -13,16 +13,13 @@ function Hero() {
 
     const fetchFullname = async () => {
         try {
-            // Replace with your actual API endpoint
-            const token = localStorage.getItem('token'); // Get the token from localStorage
-            const response = await axios.get(config.apiPath + '/user/data', {
-                headers: {
-                    Authorization: token, // Pass token in headers for authentication
-                },
-            });
+            const res = await axios.get(config.apiPath + '/user/data', config.headers());
 
-            // Assume the API returns { name: "John Doe" }
-            setFullname(response.data.fullname);
+            if (res.data.result !== undefined) {
+                // Assume the API returns { name: "John Doe" }
+                setFullname(res.data.result);
+            }
+
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
@@ -35,8 +32,8 @@ function Hero() {
             className="hero-section d-flex align-items-center my-5">
             <div className="container">
                 <div className="row justify-content-center align-items-center">
-                    
-                   
+
+
                     <div className="hero-text col-12 col-lg-6 text-start text-lg-start mb-4 mb-lg-0" data-aos='fade-right' data-aos-duration='1400'>
                         <h1>
                             ยินดีต้อนรับ สู่ร้านกาแฟที่ดีที่สุดในเมืองนี้!
@@ -50,7 +47,7 @@ function Hero() {
                         </a>
                     </div>
 
-                   
+
                     <div className="col-12 col-lg-6 text-center" data-aos='fade-up-left' data-aos-duration='1400' >
                         <img
                             src="/farmer.png"
