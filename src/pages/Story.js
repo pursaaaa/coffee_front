@@ -1,0 +1,50 @@
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import '../styles/Story.css';
+
+function Story() {
+    return (
+        <>
+        <Navbar />
+
+        <div className='gallery'>
+        <div className='img-slide'>
+            <img src='https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1469957761306-556935073eba?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1515860734122-e0d771b36d3e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29mZmVlJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://plus.unsplash.com/premium_photo-1671088575920-09f2a5970574?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1671011032397-1d717b69315b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1671011032399-c663f04fe492?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
+        </div>
+        <div className='img-slide'>
+            <img src='https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1469957761306-556935073eba?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1515860734122-e0d771b36d3e?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29mZmVlJTIwc2hvcHxlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://plus.unsplash.com/premium_photo-1671088575920-09f2a5970574?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1671011032397-1d717b69315b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
+            <img src='https://images.unsplash.com/photo-1671011032399-c663f04fe492?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
+        </div>
+        </div>
+
+        <div className='aboutus-content'>
+            <p>We roast some of the best coffees on the planet</p>
+            <p>THE BARN is a leading coffee roaster in Europe and represents the Specialty Coffee Movement at the highest level since 2010. Our beans are served by many coffee shops and home brewers across the globe.</p>
+            <p>Our vision has been very clear from the start: We focus on making our coffees better and better. No compromise - just great coffee. We would never blend our coffees in order to showcase specific flavour profiles and to present each farm we work with. This makes our farmers proud and the product fully traceable.</p>
+        </div>
+
+        <div className="story-container">
+            <div className="left"></div>
+            <div className="right">
+                <div className="story-content">
+                    <h1>This is heading</h1>
+                    <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from. We partner with producers we know and trust, ensuring quality throughout every step of the roasting process. Our ethical sourcing prioritises empowering farmers and fostering sustainability. This commitment results in great coffee that reflects a deep respect for people and the planet.</p>
+                </div>
+            </div>
+        </div>
+
+        <Footer />
+        </>
+    )
+}
+
+export default Story;

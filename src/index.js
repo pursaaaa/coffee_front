@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import Register from './pages/Register';
 import ProductDetail from './pages/ProductDetail';
+import Story from './pages/Story';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,10 @@ const router = createBrowserRouter([
     path: '/shop',
     element: <Index />
   },
-
+  {
+    path: '/story',
+    element: <Story />
+  },
   {
     path: '/contact',
     element: <Contact />

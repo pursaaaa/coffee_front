@@ -60,21 +60,21 @@ function Navbar() {
           <div className="offcanvas-body">
             <ul className="navbar-nav ms-auto navlist">
               <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
-                <Link to="/" className="nav-link">หน้าแรก</Link>
+                <Link to="/" className="nav-link">Home</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/shop' ? 'active' : ''}`}>
-                <Link to="/shop" className="nav-link">ร้านค้า</Link>
+                <Link to="/shop" className="nav-link">Shop</Link>
               </li>
-              <li className={`nav-item ${location.pathname === '/people' ? 'active' : ''}`}>
-                <Link to="/people" className="nav-link">ผู้คน</Link>
+              <li className={`nav-item ${location.pathname === '/story' ? 'active' : ''}`}>
+                <Link to="/story" className="nav-link">Story</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
-                <Link to="/contact" className="nav-link">เกี่ยวกับเรา</Link>
+                <Link to="/contact" className="nav-link">Contact</Link>
               </li>
               {!isLoggedIn ? (
                 <li className={`nav-item rounded-3  ${location.pathname === '/signin' ? 'active' : ''}`}>
                   <Link to="/signin" className="nav-link px-3">
-                    เข้าสู่ระบบ
+                    Login
                   </Link>
                 </li>
               ) : (

@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+.gallery {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.img-slide {
+    display: inline-block;
+    animation: 100s slide infinite linear;
+}
+.img-slide img {
+    height: 245px;
+    width: 350px;
+    object-fit: cover;
+}
+.gallery:hover .img-slide {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+.aboutus-content {
+    max-width: 430px;
+    margin: 60px auto;
+    text-align: center;
+}
+
+.aboutus-content p {
+    font-family: Poppins,sans-serif;
+    text-align: left;
+}
+
+.story-container {
+    min-height: 100vh;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10rem;
+    margin: 0 auto;
+}
+
+.left {
+    width: 50%;
+    height: 600px;
+    background: url(/public/story2.JPG) no-repeat center / cover;
+    border-radius: 8px;
+}
+.right {
+    width: 50%;
+    min-height: 400px;
+    background-color: #ededee;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: rgb(91, 92, 95);
+    margin-left: -150px;
+    font-family: Poppins,sans-serif;
+}
+.right h1 {
+    font-size: 40px;
+}
+.right p {
+    margin: 20px 0;
+    font-weight: 300;
+    line-height: 25px;
+}
+
+@media screen and (max-width: 1024px) {
+    .story-container{
+        flex-direction: column;
+        width: 100% !important;
+        padding: 20px 30px !important;
+    }
+    .left{
+        width: 100% !important;
+    }
+    .right{
+        width: 90% !important;
+        margin: 0 !important;
+        margin-top: -150px !important;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .story-container{
+        width: 100%;
+        padding: 0 10rem;
+    }
+    .left{
+        width: 100%;
+    }
+    .right{
+        width: 90%;
+        margin: 0;
+        margin-left: -100px;
+    }
+}
+
+

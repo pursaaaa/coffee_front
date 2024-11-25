@@ -1,44 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-.gallery {
-    overflow: hidden;
-    padding: 10px 0 0 0;
-    white-space: nowrap;
-}
-.img-slide {
-    display: inline-block;
-    animation: 100s slide infinite linear;
-}
-.img-slide img {
-    height: 245px;
-    width: 350px;
-    object-fit: cover;
-}
-.gallery:hover .img-slide {
-    animation-play-state: paused;
-}
-
-@keyframes slide {
-    from{
-        transform: translateX(0);
-    }
-    to{
-        transform: translateX(-100%);
-    }
-}
-
-.aboutus-content {
-    max-width: 430px;
-    margin: 60px auto;
-    text-align: center;
-}
-
-.aboutus-content p {
-    font-family: Poppins,sans-serif;
-    text-align: left;
-}
-
-
 /* Contact Page */
 .contact-page {
     background-color: white;
