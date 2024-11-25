@@ -1,8 +1,10 @@
 .product-detail-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: 20px;
-    padding: 20px 10%;
+    padding: 20px 20%;
+    min-height: 70vh;
   }
   
   .image-gallery {
@@ -11,13 +13,14 @@
   
   .main-image {
     width: 100%;
-    height: auto;
+    height: fit-content;
     border: 1px solid #ddd;
   }
   
   
   .product-details {
     display: flex;
+    width: 50%;
     flex-direction: column;
   }
   

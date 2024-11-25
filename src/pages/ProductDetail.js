@@ -16,12 +16,10 @@ function ProductDetail() {
     <>
     <Navbar />
     <div className="product-detail-container">
-      {/* Image Gallery */}
       <div className="image-gallery">
         <img src="https://via.placeholder.com/300" alt="Main Product" className="main-image" />
       </div>
 
-      {/* Product Details */}
       <div className="product-details">
         <h2>VOLCAN AZUL GESHA</h2>
         <p className="price">$33</p>

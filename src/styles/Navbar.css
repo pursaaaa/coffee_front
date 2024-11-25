@@ -24,7 +24,6 @@ body {  /* ทุกเพจ */
     display: flex;
     align-items: center;
     padding: 25px 5%;
-    background: transparent;    
 }
 
 .navlist {
