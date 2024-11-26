@@ -256,7 +256,7 @@ function Index() {
 
                 <div className='row'>
                     {products.length > 0 ? products.map(item =>
-                        <div className='col-6 col-md-4 col-lg-3 mt-3' key={item.id}>
+                        <div className='col-6 col-md-4 col-lg-4 mt-3' key={item.id}>
                             <div className='card'>
                                 {showImage(item)}
                                 <div className='card-body'>

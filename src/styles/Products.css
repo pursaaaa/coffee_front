@@ -11,6 +11,8 @@
  .card {
     background-color: white;
     border: none;
+    text-decoration: none;
+    color: #1a1919;
  }
 
  .card a{

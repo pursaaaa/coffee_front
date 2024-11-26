@@ -50,16 +50,16 @@ function Products() {
                 <div className="row">
                     {product.length > 0 ? (
                         product.map((item) => (
-                            <div className="col-md-4 mb-4" key={item.id}>
+                            <div className="col-12 col-md-4" key={item.id}>
                                 <div className="card" data-aos='zoom-in' data-aos-duration='1400'>
-                                    <a href={`/product/${item.id}`}>
+                                <a href={`/product/${item.id}`}>
                                         {showImage(item)}
-                                    </a>
+                                        </a>
                                     <div className="card-body">
-                                        <a href={`/product/${item.id}`}>
+                                    <a href={`/product/${item.id}`}>
                                             <p className="card-title">{item.name}</p>
                                             <p className="card-text">{item.price.toLocaleString('th-TH')} บาท</p>
-                                        </a>
+                                            </a>
                                     </div>
                                 </div>
                             </div>
