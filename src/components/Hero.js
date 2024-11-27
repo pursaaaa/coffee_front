@@ -59,14 +59,25 @@ function Hero() {
         //     </div>
         // </section>
         
-        <div className="hero-container">
-            <img src="/000071.JPEG" alt="story1" className="top-hero-img"></img>
-            <div className="bottom-hero-text" data-aos='fade-up' data-aos-duration='1500'>
-                <div className="hero-content">
-                    <h1>This is header</h1>
+        // <div className="hero-container">
+        //     <img src="/000071.JPEG" alt="story1" className="top-hero-img"></img>
+        //     <div className="bottom-hero-text" data-aos='fade-up' data-aos-duration='1500'>
+        //         <div className="hero-content">
+        //             <h1>This is header</h1>
+        //             <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from.</p>
+        //         </div>
+        //     </div>
+        // </div>
+        <div className='hero-box'>
+
+                <div className='hero-img col-12'>
+                    <img src='/homeimg.jpg'></img>
+                </div>
+                <div className='hero-info'>
+                    <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from.Our vision has been very clear from the start: We focus on making our coffees better and better. No compromise - just great coffee. </p>
                     <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from.</p>
                 </div>
-            </div>
+
         </div>
     );
 }
