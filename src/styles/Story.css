@@ -67,7 +67,6 @@ section {
     align-items: center;
     justify-content: center;
     padding: 30px;
-    color: rgb(91, 92, 95);
     margin-left: -150px;
     font-family: Poppins,sans-serif;
 }
@@ -121,7 +120,7 @@ section {
     align-items: center;
     justify-content: center;
     padding: 30px;
-    color: rgb(91, 92, 95);
+
     margin-top: -150px;
     font-family: Poppins,sans-serif;
 }

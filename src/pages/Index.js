@@ -238,15 +238,15 @@ function Index() {
         <>
             <Navbar />
             <div className='shop container-fluid mt-3'>
-                <div className='float-start'>
+                {/* <div className='float-start'>
                     <div className='h3'>สินค้าของร้านเรา</div>
-                </div>
+                </div> */}
                 <div className='float-end'>
                     ตะกร้าของฉัน
                     <button
                         data-bs-toggle='modal'
                         data-bs-target='#modalCart'
-                        className='btn btn-outline-success ms-2 me-2'>
+                        className='btn btn-outline-danger ms-2 me-2'>
                         <i className='fa fa-shopping-cart me-2'></i>
                         {recordInCarts}
                     </button>

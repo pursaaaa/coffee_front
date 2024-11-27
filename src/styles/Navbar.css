@@ -7,52 +7,94 @@
 }
 
 body {  /* ทุกเพจ */
-    margin-top: 115px; 
+    background: white;
+    color: #333;
 }
-
-.offcanvas {
-    color: whitesmoke; 
-}
-
-.navbar-toggler {
-    background-color: whitesmoke; /* Add white background */
-}
-
-
-.navbar {
+header {
     width: 100%;
+    height: 80px;
     display: flex;
     align-items: center;
-    padding: 25px 5%;
+    justify-content: space-between;
+    padding: 0 100px;
 }
-
-.navlist {
-    justify-content: flex-end; 
-    margin-left: auto; 
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 0px 2px 2px rgba(0,0,0,.29);
+}
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 22px;
+}
+.nav-bar ul {
     display: flex;
-    gap: 20px; 
-    text-shadow: 0px 2px 2px rgba(0,0,0,.29);
-    font-family: Poppins, sans-serif;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
-
-.navbar-brand {
-    font-weight: 500;
-    color:		#1a1919;
-    font-size: 30px;
-    transition: 0.3s color;
-    text-shadow: 0px 2px 2px rgba(0,0,0,.29);
-}
-
 .nav-link {
     color: #1a1919;
-    font-size: 15px;
-    transition: all 0.3s ease;
+    font-size: 16px;
+    padding: 0 25px;
+    transition: 0.2s;
+    text-shadow: 0px 2px 2px rgba(0,0,0,.29);
 }
-
 .nav-link:hover {
     opacity: 0.5;
 }
-
-.navbar-nav .nav-item.active .nav-link {
+.active {
     font-weight: bold;
+}
+.fa-shopping-cart {
+    font-size: 14px; 
+}
+
+@media screen and (max-width: 900px) {
+    .hamburger {
+        display: block;
+    }
+    .hamburger.hide {
+        display: none;
+    }
+
+    .nav-bar {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 80px; 
+        right: 0;
+        width: 260px;
+        height: 100vh;
+        background: #fff;
+        z-index: 1000;
+        opacity: 0; 
+        transform: translateX(100%); 
+        pointer-events: none; 
+        transition: transform 0.7s; 
+    }
+
+    .nav-bar.open {
+        opacity: 0.95; 
+        transform: translateX(0); 
+        pointer-events: auto; 
+        padding: 10px 20px;
+    }
+
+    .nav-bar ul {
+        flex-direction: column; 
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: start;
+    }
+
+    .nav-link {
+        padding: 15px 20px; 
+    }
 }

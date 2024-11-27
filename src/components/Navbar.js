@@ -8,12 +8,41 @@ function Navbar() {
   const location = useLocation(); // Hook to get the current path
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     // Check if the user is logged in (based on token existence in localStorage)
     const token = localStorage.getItem('token');
     setIsLoggedIn(!!token); // Set to true if token exists, otherwise false
   }, []);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      const navbar = document.querySelector('.nav-bar');
+      const hamburger = document.querySelector('.hamburger');
+      
+      // Check if the click was outside the navbar and hamburger
+      if (
+        isMenuOpen &&
+        navbar &&
+        !navbar.contains(event.target) &&
+        !hamburger.contains(event.target)
+      ) {
+        setIsMenuOpen(false); // Close the menu
+      }
+    };
+
+    document.addEventListener('click', handleOutsideClick);
+
+    // Cleanup listener when component unmounts or when `isMenuOpen` changes
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const handleSignOut = async () => {
     try {
@@ -43,23 +72,14 @@ function Navbar() {
 
   return (
 
-    <nav className="navbar navbar-expand-lg fixed-top">
-      <div className="container">
-        <a className="navbar-brand" href="/">Coffee</a>
-        <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="offcanvas offcanvas-end" id="offcanvasNavbar">
-
-          <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasNavbarLabel">Coffee</h5>
-            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-
-          <div className="offcanvas-body">
-            <ul className="navbar-nav ms-auto navlist">
-              <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
+    <header>
+      <div className='logo'>coffeeshop</div>
+      <div className={`hamburger ${isMenuOpen ? 'hide' : ''}`} onClick={toggleMenu}>
+      <i class="fa-solid fa-bars"></i>
+      </div>
+      <nav className={`nav-bar ${isMenuOpen ? 'open' : ''}`}>
+        <ul>
+        <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
                 <Link to="/" className="nav-link">Home</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/shop' ? 'active' : ''}`}>
@@ -72,8 +92,8 @@ function Navbar() {
                 <Link to="/contact" className="nav-link">Contact</Link>
               </li>
               {!isLoggedIn ? (
-                <li className={`nav-item rounded-3  ${location.pathname === '/signin' ? 'active' : ''}`}>
-                  <Link to="/signin" className="nav-link px-3">
+                <li className={`nav-item ${location.pathname === '/signin' ? 'active' : ''}`}>
+                  <Link to="/signin" className="nav-link">
                     Login
                   </Link>
                 </li>
@@ -85,13 +105,11 @@ function Navbar() {
                 </li>
               )}
               <li>
-                <i className='fa fa-shopping-cart mt-2 text-dark'> 0</i>
+                <i className='fa fa-shopping-cart nav-link'> 0</i>
               </li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }
 
