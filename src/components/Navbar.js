@@ -72,7 +72,7 @@ function Navbar() {
 
   return (
 
-    <header>
+    <header> 
       <div className='logo'>coffeeshop</div>
       <div className={`hamburger ${isMenuOpen ? 'hide' : ''}`} onClick={toggleMenu}>
       <i class="fa-solid fa-bars"></i>

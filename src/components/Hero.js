@@ -27,16 +27,34 @@ function Hero() {
 
 
     return (
-        <div className='hero-box' data-aos='fade-zoom-in' data-aos-duration='1200'>
+        <>
+        <div className='hero-content' data-aos='fade-zoom-in' data-aos-duration='1200'>
                 <div className='hero-img col-12'>
                     <img src='/homeimg.jpg'></img>
                     <div className='hero-overlay-text'>COFFEE SHOP</div>
                 </div>
-                <div className='hero-info'>
-                    <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from.Our vision has been very clear from the start: We focus on making our coffees better and better. No compromise - just great coffee. </p>
-                    <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from.</p>
+                <div className='hero-box col-12'>
+                    <ul>
+                        <li>
+                            <a href=''>
+                                <div  className='image-box'>
+                                    <img src='/Beans.jpg'></img>
+                                    <div className='box-overlay-text'>BEANs</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href=''>
+                                <div  className='image-box'>
+                                    <img src='/000054.JPG'></img>
+                                    <div className='box-overlay-text'>Our store</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
         </div>
+        </>
     );
 }
 

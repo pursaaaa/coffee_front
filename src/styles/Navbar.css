@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
+    /* outline: 1px solid red; */
 }
 
 body {  /* ทุกเพจ */
     background: white;
     color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 header {
     width: 100%;
@@ -35,6 +37,8 @@ header {
     margin: 0;
     padding: 0;
     list-style: none;
+    max-width: 100%;
+    overflow: hidden;
 }
 .nav-link {
     color: #1a1919;
@@ -60,15 +64,17 @@ header {
     .hamburger.hide {
         display: none;
     }
+    header {
+        padding: 0 30px;
+    }
 
     .nav-bar {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 80px; 
+        position: fixed;
+        top: 0; 
         right: 0;
         width: 260px;
         height: 100vh;
+        padding: 0;
         background: #fff;
         z-index: 1000;
         opacity: 0; 
@@ -87,6 +93,7 @@ header {
     .nav-bar ul {
         flex-direction: column; 
         width: 100%;
+        padding-top: 80px;
     }
 
     .nav-item {

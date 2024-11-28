@@ -14,7 +14,7 @@ function Story() {
         <>
         <Navbar />
 
-        <div className='gallery'>
+    <div className='gallery' data-aos='fade-zoom-in' data-aos-duration='1400'>
         <div className='img-slide'>
             <img src='https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D'></img>
             <img src='https://images.unsplash.com/photo-1469957761306-556935073eba?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGNvZmZlZXxlbnwwfHwwfHx8MA%3D%3D'></img>
@@ -31,9 +31,9 @@ function Story() {
             <img src='https://images.unsplash.com/photo-1671011032397-1d717b69315b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
             <img src='https://images.unsplash.com/photo-1671011032399-c663f04fe492?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTR8fGNvZmZlZSUyMGFlc3RoZXRpY3xlbnwwfHwwfHx8MA%3D%3D'></img>
         </div>
-        </div>
+    </div>
 
-        <div className='aboutus-content'>
+        <div className='aboutus-content' data-aos='fade-zoom-in' data-aos-duration='1400'>
             <p>We roast some of the best coffees on the planet</p>
             <p>THE BARN is a leading coffee roaster in Europe and represents the Specialty Coffee Movement at the highest level since 2010. Our beans are served by many coffee shops and home brewers across the globe.</p>
             <p>Our vision has been very clear from the start: We focus on making our coffees better and better. No compromise - just great coffee. We would never blend our coffees in order to showcase specific flavour profiles and to present each farm we work with. This makes our farmers proud and the product fully traceable.</p>
@@ -53,7 +53,7 @@ function Story() {
 
         <section>
         <div className="story-container-2">
-            <img src="/000071.JPEG" alt="story1" className="top-story-img"></img>
+            <img src="/000071.JPEG" alt="story1" className="top-story-img" data-aos='fade-up' data-aos-duration='1500'></img>
             <div className="bottom-story-text" data-aos='fade-up' data-aos-duration='1500'>
                 <div className="story-content">
                     <h1>This is header</h1>
