@@ -241,7 +241,7 @@ function Index() {
                 {/* <div className='float-start'>
                     <div className='h3'>สินค้าของร้านเรา</div>
                 </div> */}
-                <div className='float-end'>
+                <div className='my-cart'>
                     ตะกร้าของฉัน
                     <button
                         data-bs-toggle='modal'

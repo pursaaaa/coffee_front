@@ -105,7 +105,7 @@ function Navbar() {
                 </li>
               )}
               <li>
-                <i className='fa fa-shopping-cart nav-link'> 0</i>
+                <i class="fa-solid fa-cart-shopping">   0</i>
               </li>
             </ul>
       </nav>
