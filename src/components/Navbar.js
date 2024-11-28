@@ -73,29 +73,27 @@ function Navbar() {
   return (
 
     <header> 
-      <div className='logo'>coffeeshop</div>
+      <div className='logo'>COFFEESHOP</div>
       <div className={`hamburger ${isMenuOpen ? 'hide' : ''}`} onClick={toggleMenu}>
       <i class="fa-solid fa-bars"></i>
       </div>
       <nav className={`nav-bar ${isMenuOpen ? 'open' : ''}`}>
         <ul>
         <li className={`nav-item ${location.pathname === '/' ? 'active' : ''}`}>
-                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/" className="nav-link">HOME</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/shop' ? 'active' : ''}`}>
-                <Link to="/shop" className="nav-link">Shop</Link>
+                <Link to="/shop" className="nav-link">SHOP</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/story' ? 'active' : ''}`}>
-                <Link to="/story" className="nav-link">Story</Link>
+                <Link to="/story" className="nav-link">STORY</Link>
               </li>
               <li className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}>
-                <Link to="/contact" className="nav-link">Contact</Link>
+                <Link to="/contact" className="nav-link">CONTACT</Link>
               </li>
               {!isLoggedIn ? (
                 <li className={`nav-item ${location.pathname === '/signin' ? 'active' : ''}`}>
-                  <Link to="/signin" className="nav-link">
-                    Login
-                  </Link>
+                  <Link to="/signin" className="nav-link">LOGIN</Link>
                 </li>
               ) : (
                 <li className="nav-item">
@@ -104,9 +102,6 @@ function Navbar() {
                   </button>
                 </li>
               )}
-              <li>
-                <i class="fa-solid fa-cart-shopping">   0</i>
-              </li>
             </ul>
       </nav>
     </header>

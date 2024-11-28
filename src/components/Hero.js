@@ -29,11 +29,11 @@ function Hero() {
     return (
         <>
         <div className='hero-content' data-aos='fade-zoom-in' data-aos-duration='1200'>
-                <div className='hero-img col-12'>
+                <div className='hero-img'>
                     <img src='/homeimg.jpg'></img>
                     <div className='hero-overlay-text'>COFFEE SHOP</div>
                 </div>
-                <div className='hero-box col-12'>
+                <div className='hero-box'>
                     <ul>
                         <li>
                             <a href=''>

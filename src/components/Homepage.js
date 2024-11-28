@@ -9,7 +9,9 @@ import 'aos/dist/aos.css';
 
 function Homepage() {
     useEffect(() => {
-        AOS.init()
+        AOS.init({
+            once: true
+        })
     }, []);
     return (
         <div className="App">

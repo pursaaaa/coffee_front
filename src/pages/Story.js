@@ -39,7 +39,7 @@ function Story() {
             <p>Our vision has been very clear from the start: We focus on making our coffees better and better. No compromise - just great coffee. We would never blend our coffees in order to showcase specific flavour profiles and to present each farm we work with. This makes our farmers proud and the product fully traceable.</p>
         </div>
 
-        <section>
+        <section className="story-section">
         <div className="story-container">
         <img src="/story2.JPG" alt="story" className="left" data-aos='fade-right' data-aos-duration='1500'></img>
             <div className="right" data-aos='fade-left' data-aos-duration='1500'>
@@ -51,7 +51,7 @@ function Story() {
         </div>
         </section>
 
-        <section>
+        <section className="story-section">
         <div className="story-container-2">
             <img src="/000071.JPEG" alt="story1" className="top-story-img" data-aos='fade-up' data-aos-duration='1500'></img>
             <div className="bottom-story-text" data-aos='fade-up' data-aos-duration='1500'>
@@ -64,7 +64,7 @@ function Story() {
         </section>
 
 
-        <section>
+        <section className="story-section">
         <div className="story-container">
             <img src="/story1.JPG" alt="story2" className="left" data-aos='fade-right' data-aos-duration='1500'></img>
             <div className="right" data-aos='fade-left' data-aos-duration='1500'>

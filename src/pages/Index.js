@@ -271,7 +271,7 @@ function Index() {
                                 </div>
                             </div>
                         </div>
-                    ) : <></>}
+                    ) : (<p className="text-center">No products available.</p>)}
                 </div>
             </div>
             <Footer />

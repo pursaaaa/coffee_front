@@ -23,7 +23,7 @@
 }
 
 .contact-form .form-control:focus {
-    border-color: #1a1919; /* Bright Yellow */
+    border-color: #1a1919; 
     box-shadow: none;
 }
 
