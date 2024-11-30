@@ -58,6 +58,11 @@ function Navbar() {
         localStorage.removeItem('token');
         setIsLoggedIn(false)
         navigate('/');
+        Swal.fire({
+          title: "สำเร็จ",
+          text: 'ออกจากระบบสำเร็จ',
+          icon: 'success'
+        })
       }
     } catch (e) {
       Swal.fire({
