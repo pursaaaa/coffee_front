@@ -6,3 +6,30 @@
 .my-cart {
     text-align: end;
 }
+
+.card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover .card-img-top img {
+    transform: scale(1.05);
+}
+
+.btn-outline-danger {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+

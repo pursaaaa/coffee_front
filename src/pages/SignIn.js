@@ -47,7 +47,7 @@ function SignIn() {
         <>
         <Navbar/>
         <div className="signin-container d-flex align-items-center justify-content-center">
-            <div className="card signin-card shadow">
+            <div className="card signin-card">
                 <h3 className="text-center mb-4">เข้าสู่ระบบ</h3>
                 <form>
                     <div className="mb-3">

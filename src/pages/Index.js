@@ -18,6 +18,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 import '../styles/Shop.css'
+import { Link } from 'react-router-dom';
 
 
 function Index() {
@@ -237,10 +238,58 @@ function Index() {
     return (
         <>
             <Navbar />
-            <div className='shop container-fluid mt-3'>
-                {/* <div className='float-start'>
+            <div className="shop container py-5">
+                {/* Cart Section */}
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                    <h3 className="text-dark fw-bold" data-aos="fade-right" data-aos-duration="1200">
+                        สินค้าของเรา
+                    </h3>
+                    <div className="my-cart d-flex align-items-center">
+                        <span className="me-3 text-muted" style={{ fontSize: '1.2rem' }}>ตะกร้าของฉัน</span>
+                        <button
+                            data-bs-toggle="modal"
+                            data-bs-target="#modalCart"
+                            className="btn btn-outline-danger d-flex align-items-center px-3 py-2"
+                            style={{ borderRadius: '25px' }}
+                        >
+                            <i className="fa fa-shopping-cart me-2"></i>
+                            <span>{recordInCarts} ชิ้น</span>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Products Section */}
+                <div className="row g-4">
+                    {products.length > 0 ? (
+                        products.map((item) => (
+                            <div className="col-12 col-sm-6 col-md-4" key={item.id}>
+                                <div className="card border-0 h-100" data-aos="fade-up" data-aos-duration="1200">
+                                    <Link to={`/product/${item.id}`} className="text-decoration-none">
+                                        <div className="card-img-top overflow-hidden" style={{ height: '200px' }}>
+                                            {showImage(item)}
+                                        </div>
+                                    </Link>
+                                    <div className="card-body text-center">
+                                        <Link to={`/product/${item.id}`} className="text-decoration-none">
+                                            <h5 className="card-title fw-bold text-dark">{item.name}</h5>
+                                            <p className="card-text text-muted mb-0">{item.price.toLocaleString('th-TH')} บาท</p>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-center text-muted">No products available.</p>
+                    )}
+                </div>
+            </div>
+            
+
+            
+            {/* <div className='shop container-fluid mt-3'>
+                <div className='float-start'>
                     <div className='h3'>สินค้าของร้านเรา</div>
-                </div> */}
+                </div>
                 <div className='my-cart'>
                     ตะกร้าของฉัน
                     <button
@@ -252,28 +301,32 @@ function Index() {
                     </button>
                     ชิ้น
                 </div>
-                
+
 
                 <div className='row'>
                     {products.length > 0 ? products.map(item =>
                         <div className='col-6 col-md-4 col-lg-4 mt-3' key={item.id}>
                             <div className='card'>
-                                {showImage(item)}
+                                <Link to={`/product/${item.id}`}>
+                                    {showImage(item)}
+                                </Link>
                                 <div className='card-body'>
-                                    <div>{item.name}</div>
-                                    <div>{item.price.toLocaleString('th-TH')}</div>
-                                    <div className='text-center'>
-                                        <button className='btn btn-primary' onClick={e => addToCart(item)}>
-                                            <i className='fa fa-shopping-cart mr-2'></i>
-                                            Add to Cart
-                                        </button>
-                                    </div>
+                                    <Link to={`/product/${item.id}`}>
+                                        <div>{item.name}</div>
+                                        <div>{item.price.toLocaleString('th-TH')}</div>
+                                        <div className='text-center'>
+                                            <button className='btn btn-primary' onClick={e => addToCart(item)}>
+                                                <i className='fa fa-shopping-cart mr-2'></i>
+                                                Add to Cart
+                                            </button>
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                     ) : (<p className="text-center">No products available.</p>)}
                 </div>
-            </div>
+            </div> */}
             <Footer />
 
             <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
