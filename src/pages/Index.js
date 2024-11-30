@@ -262,12 +262,12 @@ function Index() {
                                 <div className='card-body'>
                                     <div>{item.name}</div>
                                     <div>{item.price.toLocaleString('th-TH')}</div>
-                                    {/* <div className='text-center'>
+                                    <div className='text-center'>
                                         <button className='btn btn-primary' onClick={e => addToCart(item)}>
                                             <i className='fa fa-shopping-cart mr-2'></i>
                                             Add to Cart
                                         </button>
-                                    </div> */}
+                                    </div>
                                 </div>
                             </div>
                         </div>

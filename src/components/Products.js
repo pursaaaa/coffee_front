@@ -17,7 +17,7 @@ function Products() {
 
             if (res.data.results !== undefined) {
                 const selectedProducts = res.data.results.filter(
-                    (item) => item.id === 10 || item.id === 11 || item.id === 12     // Replace with your IDs
+                    (item) => item.id === 14 || item.id === 15 || item.id === 16     // Replace with your IDs
                 );
 
                 setProducts(selectedProducts);
