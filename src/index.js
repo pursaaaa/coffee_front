@@ -15,6 +15,7 @@ import ProductDetail from './pages/ProductDetail';
 import Story from './pages/Story';
 import EmailCheck from './pages/EmailCheck';
 import ChangePassword from './pages/ChangePassword';
+import ForgetPassword from './pages/ForgetPassword';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: 'changePassword',
     element: <ChangePassword />
+  },
+  {
+    path: 'forgetPassword',
+    element: <ForgetPassword />
   }
 ]);
 

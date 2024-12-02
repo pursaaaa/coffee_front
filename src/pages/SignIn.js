@@ -90,6 +90,12 @@ function SignIn() {
                         >
                             เปลี่ยนรหัสผ่าน
                         </button>
+                        <button 
+                        className='btn btn-link'
+                        onClick={() => navigate('/forgetPassword')}
+                        >
+                            ลืมรหัสผ่าน
+                        </button>
                     </div>
                 </div>
             </div>
