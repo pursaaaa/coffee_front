@@ -13,6 +13,8 @@ import SignIn from './pages/SignIn';
 import Register from './pages/Register';
 import ProductDetail from './pages/ProductDetail';
 import Story from './pages/Story';
+import EmailCheck from './pages/EmailCheck';
+import ChangePassword from './pages/ChangePassword';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <Register />
+  },
+  {
+    path: '/checkEmail',
+    element: <EmailCheck />
+  },
+  {
+    path: 'changePassword',
+    element: <ChangePassword />
   }
 ]);
 

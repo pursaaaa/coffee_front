@@ -45,48 +45,54 @@ function SignIn() {
 
     return (
         <>
-        <Navbar/>
-        <div className="signin-container d-flex align-items-center justify-content-center">
-            <div className="card signin-card">
-                <h3 className="text-center mb-4">เข้าสู่ระบบ</h3>
-                <form>
-                    <div className="mb-3">
-                        <label htmlFor="username" className="form-label">ชื่อผู้ใช้</label>
-                        <input
-                            type="text"
-                            id="username"
-                            className="form-control"
-                            placeholder="ชื่อผู้ใช้ของคุณ"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                            required
-                        />
+            <Navbar />
+            <div className="signin-container d-flex align-items-center justify-content-center">
+                <div className="card signin-card">
+                    <h3 className="text-center mb-4">เข้าสู่ระบบ</h3>
+                    <form>
+                        <div className="mb-3">
+                            <label htmlFor="username" className="form-label">ชื่อผู้ใช้</label>
+                            <input
+                                type="text"
+                                id="username"
+                                className="form-control"
+                                placeholder="ชื่อผู้ใช้ของคุณ"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">รหัสผ่าน</label>
+                            <input
+                                type="password"
+                                id="password"
+                                className="form-control"
+                                placeholder="รหัสผ่านของคุณ"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-light w-100" onClick={handleSubmit}>เข้าสู่ระบบ</button>
+                    </form>
+                    <div className="text-left mt-3">
+                        <span>ไม่มีบัญชีผู้ใช้? </span>
+                        <button
+                            className="btn btn-link"
+                            onClick={() => navigate('/register')}
+                        >
+                            สมัครสมาชิก
+                        </button>
+                        <button 
+                        className='btn btn-link'
+                        onClick={() => navigate('/checkEmail')}
+                        >
+                            เปลี่ยนรหัสผ่าน
+                        </button>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor="password" className="form-label">รหัสผ่าน</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="form-control"
-                            placeholder="รหัสผ่านของคุณ"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    <button type="submit" className="btn btn-light w-100" onClick={handleSubmit}>เข้าสู่ระบบ</button>
-                </form>
-                <div className="text-center mt-3">
-                    <span>ไม่มีบัญชีผู้ใช้? </span>
-                    <button
-                        className="btn btn-link"
-                        onClick={() => navigate('/register')}
-                    >
-                        สมัครสมาชิก
-                    </button>
                 </div>
             </div>
-        </div>
         </>
     );
 }
