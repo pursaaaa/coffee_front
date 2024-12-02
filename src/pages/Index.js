@@ -284,49 +284,6 @@ function Index() {
                 </div>
             </div>
             
-
-            
-            {/* <div className='shop container-fluid mt-3'>
-                <div className='float-start'>
-                    <div className='h3'>สินค้าของร้านเรา</div>
-                </div>
-                <div className='my-cart'>
-                    ตะกร้าของฉัน
-                    <button
-                        data-bs-toggle='modal'
-                        data-bs-target='#modalCart'
-                        className='btn btn-outline-danger ms-2 me-2'>
-                        <i className='fa fa-shopping-cart me-2'></i>
-                        {recordInCarts}
-                    </button>
-                    ชิ้น
-                </div>
-
-
-                <div className='row'>
-                    {products.length > 0 ? products.map(item =>
-                        <div className='col-6 col-md-4 col-lg-4 mt-3' key={item.id}>
-                            <div className='card'>
-                                <Link to={`/product/${item.id}`}>
-                                    {showImage(item)}
-                                </Link>
-                                <div className='card-body'>
-                                    <Link to={`/product/${item.id}`}>
-                                        <div>{item.name}</div>
-                                        <div>{item.price.toLocaleString('th-TH')}</div>
-                                        <div className='text-center'>
-                                            <button className='btn btn-primary' onClick={e => addToCart(item)}>
-                                                <i className='fa fa-shopping-cart mr-2'></i>
-                                                Add to Cart
-                                            </button>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                    ) : (<p className="text-center">No products available.</p>)}
-                </div>
-            </div> */}
             <Footer />
 
             <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>

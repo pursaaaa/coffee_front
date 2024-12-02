@@ -17,7 +17,7 @@ function Products() {
 
             if (res.data.results !== undefined) {
                 const selectedProducts = res.data.results.filter(
-                    (item) => item.id === 14 || item.id === 15 || item.id === 16     // Replace with your IDs
+                    (item) => item.id === 1 || item.id === 2 || item.id === 3     // Replace with your IDs
                 );
 
                 setProducts(selectedProducts);
@@ -75,36 +75,6 @@ function Products() {
                 </div>
             </div>
         </div>
-
-        // อันเก่า
-        // <div id="products" className="products-section py-5">
-        //     <div className="container">
-        //         <h2 className="text-center mb-4" data-aos='zoom-in' data-aos-duration='1400'>
-        //             สินค้าล่าสุดของเรา
-        //         </h2>
-        //         <div className="row">
-        //             {product.length > 0 ? (
-        //                 product.map((item) => (
-        //                     <div className="col-12 col-md-4" key={item.id}>
-        //                         <div className="card" data-aos='zoom-in' data-aos-duration='1400'>
-        //                         <a href={`/product/${item.id}`}>
-        //                                 {showImage(item)}
-        //                                 </a>
-        //                             <div className="card-body">
-        //                             <a href={`/product/${item.id}`}>
-        //                                     <p className="card-title">{item.name}</p>
-        //                                     <p className="card-text">{item.price.toLocaleString('th-TH')} บาท</p>
-        //                                     </a>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 ))
-        //             ) : (
-        //                 <p className="text-center">No products available.</p>
-        //             )}
-        //         </div>
-        //     </div>
-        // </div>
     );
 }
 
