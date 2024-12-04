@@ -283,7 +283,7 @@ function Index() {
                     )}
                 </div>
             </div>
-            
+
             <Footer />
 
             <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
@@ -316,12 +316,7 @@ function Index() {
                     จำนวน {sumQty} รายการ เป็นเงิน {sumPrice.toLocaleString('th-TH')} บาท
                 </div>
 
-                <div className='mt-3'>
-                    <div className='alert alert-info text-center'>
-                        <div>โปรดโอนเงินไปยังบัญชี</div>
-                        <div>ไทยพาณิชย์ นายศุภโชค ชาตรูปะมัย 033-425-2337</div>
-                    </div>
-
+                <div className='mt-3'>              
                     <div>
                         <div>ชื่อผู้ซื้อ</div>
                         <input className='form-control' value={customerName} onChange={e => setCustomerName(e.target.value)} />

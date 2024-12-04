@@ -51,11 +51,11 @@ const router = createBrowserRouter([
     element: <EmailCheck />
   },
   {
-    path: 'changePassword',
+    path: '/changePassword',
     element: <ChangePassword />
   },
   {
-    path: 'forgetPassword',
+    path: '/forgetPassword',
     element: <ForgetPassword />
   }
 ]);
