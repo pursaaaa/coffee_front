@@ -64,36 +64,73 @@ function ProductDetail() {
         }
     }
 
+    // const addToCart = (item) => {
+    //     let arr = carts;
+
+    //     if (arr === null) {
+    //         arr = [];
+    //     }
+
+    //     arr.push(item);
+
+    //     setCarts(arr);
+    //     setRecordInCarts(arr.length);
+
+    //     localStorage.setItem('carts', JSON.stringify(carts));
+
+    //     fetchDataFromLocal();
+    // }
+
     const addToCart = (item) => {
-        let arr = carts;
-
-        if (arr === null) {
-            arr = [];
+        let arr = [...carts];
+        const existingIndex = arr.findIndex(cartItem => cartItem.id === item.id);
+    
+        if (existingIndex >= 0) {
+            // If the product exists in the cart, increment the quantity
+            arr[existingIndex].quantity += 1;
+        } else {
+            // Add new product with initial quantity
+            arr.push({ ...item, quantity: 1 });
         }
-
-        arr.push(item);
-
+    
         setCarts(arr);
         setRecordInCarts(arr.length);
+        localStorage.setItem('carts', JSON.stringify(arr));
+    
+        computePriceAndQty(arr);
+    };
+    
 
-        localStorage.setItem('carts', JSON.stringify(carts));
 
-        fetchDataFromLocal();
-    }
+    // const computePriceAndQty = (itemInCarts) => {
+    //     let sumQty = 0;
+    //     let sumPrice = 0;
+
+    //     for (let i = 0; i < itemInCarts.length; i++) {
+    //         const item = itemInCarts[i];
+    //         sumQty++;
+    //         sumPrice += parseInt(item.price);
+    //     }
+
+    //     setSumPrice(sumPrice);
+    //     setSumQty(sumQty);
+    // }
 
     const computePriceAndQty = (itemInCarts) => {
-        let sumQty = 0;
-        let sumPrice = 0;
-
+        let totalQty = 0;
+        let totalPrice = 0;
+    
         for (let i = 0; i < itemInCarts.length; i++) {
             const item = itemInCarts[i];
-            sumQty++;
-            sumPrice += parseInt(item.price);
+            totalQty += item.quantity; // Sum up quantities
+            totalPrice += item.price * item.quantity; // Sum up prices based on quantity
         }
-
-        setSumPrice(sumPrice);
-        setSumQty(sumQty);
-    }
+    
+        setSumQty(totalQty);
+        setSumPrice(totalPrice); // Update the total price
+        setRecordInCarts(totalQty)
+    };
+    
 
     const addToCartWithFeedback = (product) => {
         // Temporarily mark as adding
@@ -112,7 +149,7 @@ function ProductDetail() {
         // Remove "isAdding" state after a short delay
         setTimeout(() => {
             setProduct({ ...product, isAdding: false });
-        }, 250); 
+        }, 250);
     };
 
 
@@ -242,17 +279,29 @@ function ProductDetail() {
         document.getElementById('qrModal_btnClose').click();
     }
 
-    const handleIncrement = () => setQuantity(quantity + 1);
-    const handleDecrement = () => {
-        if (quantity > 1) setQuantity(quantity - 1);
+    const handleIncrementModal = (index) => {
+        const updatedCarts = [...carts];
+        updatedCarts[index].quantity += 1; // Increment quantity
+        setCarts(updatedCarts);
+
+        // Update localStorage and recompute totals
+        localStorage.setItem('carts', JSON.stringify(updatedCarts));
+        computePriceAndQty(updatedCarts);
     };
 
-    // const showImage = (img) => {
-    //     const imgPath = img
-    //         ? `${config.apiPath}/uploads/${img}`
-    //         : 'default_image.png'; // Default image if no image is provided
-    //     return <img className="card-img-top object-fit-fill" height="150px" src={imgPath} alt="Product" />;
-    // };
+    const handleDecrementModal = (index) => {
+        const updatedCarts = [...carts];
+        if (updatedCarts[index].quantity > 1) {
+            updatedCarts[index].quantity -= 1; // Decrement quantity
+            setCarts(updatedCarts);
+
+            // Update localStorage and recompute totals
+            localStorage.setItem('carts', JSON.stringify(updatedCarts));
+            computePriceAndQty(updatedCarts);
+        }
+    };
+
+
 
     return (
         <>
@@ -293,7 +342,7 @@ function ProductDetail() {
                                 <p className="text-muted">{product.description}</p>
                                 <h4 className="text-danger">{product.price?.toLocaleString('th-TH')} บาท</h4>
 
-                                <div className="d-flex align-items-center mt-4">
+                                {/* <div className="d-flex align-items-center mt-4">
                                     <button
                                         className="btn btn-outline-secondary me-2"
                                         onClick={handleDecrement}
@@ -307,7 +356,7 @@ function ProductDetail() {
                                     >
                                         +
                                     </button>
-                                </div>
+                                </div> */}
 
                                 <button
                                     className="btn btn-warning mt-3"
@@ -327,7 +376,7 @@ function ProductDetail() {
 
             <Footer />
 
-            <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
+            {/* <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
                 <table className='table table-bordered table-striped'>
                     <thead>
                         <tr>
@@ -382,7 +431,81 @@ function ProductDetail() {
                         <i className='fa fa-check mr-2'></i> ยืนยันการซื้อ
                     </button>
                 </div>
+            </MyModal> */}
+
+            <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
+                <table className='table table-bordered table-striped'>
+                    <thead>
+                        <tr>
+                            <th>ชื่อสินค้า</th>
+                            <th className='text-end'>ราคา</th>
+                            <th className='text-end'>จำนวน</th>
+                            <th width='60px'></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {carts.length > 0 ? carts.map((item, index) =>
+                            <tr key={item.id}>
+                                <td>{item.name}</td>
+                                <td className='text-end'>{item.price.toLocaleString('th-TH')}</td>
+                                <td className='text-end'>
+                                    <div className="d-flex justify-content-center align-items-center">
+                                        <button
+                                            className="btn btn-outline-secondary me-2"
+                                            onClick={() => handleDecrementModal(index)}
+                                        >
+                                            -
+                                        </button>
+                                        <span>{item.quantity}</span>
+                                        <button
+                                            className="btn btn-outline-secondary ms-2"
+                                            onClick={() => handleIncrementModal(index)}
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </td>
+                                <td className='text-center'>
+                                    <button className='btn btn-danger' onClick={() => handleRemove(item)}>
+                                        <i className='fa fa-times'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        ) : <tr><td colSpan="4" className="text-center">ไม่มีสินค้าในตะกร้า</td></tr>}
+                    </tbody>
+                </table>
+
+                <div className='text-center'>
+                    จำนวน {sumQty} รายการ เป็นเงิน {sumPrice.toLocaleString('th-TH')} บาท
+                </div>
+
+                <div className='mt-3'>
+                    <div>
+                        <div>ชื่อผู้ซื้อ</div>
+                        <input className='form-control' value={customerName} onChange={e => setCustomerName(e.target.value)} placeholder='กรอกชื่อ-นามสกุล' />
+                    </div>
+                    <div className='mt-3'>
+                        <div>เบอร์โทรติดต่อ</div>
+                        <input className='form-control' value={customerPhone} onChange={e => setCustomerPhone(e.target.value)} placeholder='กรอกเบอร์ติดต่อ' maxLength="10" />
+                    </div>
+                    <div className='mt-3'>
+                        <div>ที่อยู่จัดส่ง</div>
+                        <input className='form-control' value={customerAddress} onChange={e => setCustomerAddress(e.target.value)} placeholder='กรอกที่อยู่' />
+                    </div>
+                    <div className='mt-3'>
+                        <div>วันที่โอนเงิน</div>
+                        <input className='form-control' type='date' value={payDate} onChange={e => setPayDate(e.target.value)} />
+                    </div>
+                    <div className='mt-3'>
+                        <div>เวลาที่โอนเงิน</div>
+                        <input className='form-control' type='time' value={payTime} onChange={e => setPayTime(e.target.value)} />
+                    </div>
+                    <button className='btn btn-primary mt-3' onClick={handleSave}>
+                        <i className='fa fa-check mr-2'></i> ยืนยันการซื้อ
+                    </button>
+                </div>
             </MyModal>
+
 
             <MyModal id="qrModal" title="ชำระเงินผ่าน PromptPay">
                 {qrCodeUrl ? (

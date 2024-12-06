@@ -72,49 +72,81 @@ function Index() {
         return <></>;
     }
 
-    const addToCart = (item) => {
-        let arr = carts;
-
-        if (arr === null) {
-            arr = [];
-        }
-
-        arr.push(item);
-
-        setCarts(arr);
-        setRecordInCarts(arr.length);
-
-        localStorage.setItem('carts', JSON.stringify(carts));
-
-        fetchDataFromLocal();
-    }
 
     const fetchDataFromLocal = () => {
-        const itemInCarts = JSON.parse(localStorage.getItem('carts'));
-        // setCarts(itemInCarts);
-        // setRecordInCarts(itemInCarts.length);
+        const itemInCarts = JSON.parse(localStorage.getItem('carts')) || [];
+        setCarts(itemInCarts);
+        setRecordInCarts(itemInCarts.length);
+        computePriceAndQty(itemInCarts);
+    };
 
-        if (itemInCarts !== null) {
-            setCarts(itemInCarts);
-            setRecordInCarts(itemInCarts.length !== null ? itemInCarts.length : 0);
 
-            computePriceAndQty(itemInCarts);
-        }
-    }
+    // const computePriceAndQty = (itemInCarts) => {
+    //     let sumQty = 0;
+    //     let sumPrice = 0;
+
+    //     for (let i = 0; i < itemInCarts.length; i++) {
+    //         const item = itemInCarts[i];
+    //         sumQty++;
+    //         sumPrice += parseInt(item.price);
+    //     }
+
+    //     setSumPrice(sumPrice);
+    //     setSumQty(sumQty);
+    // }
 
     const computePriceAndQty = (itemInCarts) => {
-        let sumQty = 0;
-        let sumPrice = 0;
+        let totalQty = 0;
+        let totalPrice = 0;
 
         for (let i = 0; i < itemInCarts.length; i++) {
             const item = itemInCarts[i];
-            sumQty++;
-            sumPrice += parseInt(item.price);
+            totalQty += item.quantity; // Sum up quantities
+            totalPrice += item.price * item.quantity; // Sum up prices based on quantity
         }
 
-        setSumPrice(sumPrice);
-        setSumQty(sumQty);
-    }
+        setSumQty(totalQty);
+        setSumPrice(totalPrice); // Update the total price
+        setRecordInCarts(totalQty)
+    };
+
+
+    // const handleRemove = async (item) => {
+    //     try {
+    //         const button = await Swal.fire({
+    //             title: 'ลบสินค้า',
+    //             text: 'คุณต้องการลบสินค้าออกจากตระกร้าใช่หรือไม่',
+    //             icon: 'question',
+    //             showConfirmButton: true,
+    //             showCancelButton: true
+    //         })
+
+    //         if (button.isConfirmed) {
+    //             let arr = carts;
+
+    //             for (let i = 0; i < arr.length; i++) {
+    //                 const itemInCart = arr[i];
+
+    //                 if (item.id === itemInCart.id) {
+    //                     arr.splice(i, 1);
+    //                 }
+    //             }
+
+    //             setCarts(arr);
+    //             setRecordInCarts(arr.length);
+
+    //             localStorage.setItem('carts', JSON.stringify(arr));
+
+    //             computePriceAndQty(arr);
+    //         }
+    //     } catch (e) {
+    //         Swal.fire({
+    //             title: 'error',
+    //             text: e.message,
+    //             icon: 'error'
+    //         })
+    //     }
+    // }
 
     const handleRemove = async (item) => {
         try {
@@ -123,35 +155,40 @@ function Index() {
                 text: 'คุณต้องการลบสินค้าออกจากตระกร้าใช่หรือไม่',
                 icon: 'question',
                 showConfirmButton: true,
-                showCancelButton: true
-            })
+                showCancelButton: true,
+            });
 
             if (button.isConfirmed) {
-                let arr = carts;
+                // Create a new array by removing the first occurrence of the item
+                const updatedCarts = [...carts];
+                const index = updatedCarts.findIndex((cartItem) => cartItem.id === item.id);
 
-                for (let i = 0; i < arr.length; i++) {
-                    const itemInCart = arr[i];
-
-                    if (item.id === itemInCart.id) {
-                        arr.splice(i, 1);
-                    }
+                if (index !== -1) {
+                    updatedCarts.splice(index, 1); // Remove the first occurrence
                 }
 
-                setCarts(arr);
-                setRecordInCarts(arr.length);
+                setCarts(updatedCarts);
+                setRecordInCarts(updatedCarts.length);
 
-                localStorage.setItem('carts', JSON.stringify(arr));
+                localStorage.setItem('carts', JSON.stringify(updatedCarts));
 
-                computePriceAndQty(arr);
+                computePriceAndQty(updatedCarts);
+
+                Swal.fire({
+                    title: 'สำเร็จ',
+                    text: 'สินค้าได้ถูกลบออกจากตระกร้า',
+                    icon: 'success',
+                    timer: 1500,
+                });
             }
         } catch (e) {
             Swal.fire({
                 title: 'error',
                 text: e.message,
-                icon: 'error'
-            })
+                icon: 'error',
+            });
         }
-    }
+    };
 
     const handleSave = async () => {
         setIsSaving(true);
@@ -235,6 +272,28 @@ function Index() {
         document.getElementById('qrModal_btnClose').click();
     }
 
+    const handleIncrementModal = (index) => {
+        const updatedCarts = [...carts];
+        updatedCarts[index].quantity += 1; // Increment quantity
+        setCarts(updatedCarts);
+
+        // Update localStorage and recompute totals
+        localStorage.setItem('carts', JSON.stringify(updatedCarts));
+        computePriceAndQty(updatedCarts);
+    };
+
+    const handleDecrementModal = (index) => {
+        const updatedCarts = [...carts];
+        if (updatedCarts[index].quantity > 1) {
+            updatedCarts[index].quantity -= 1; // Decrement quantity
+            setCarts(updatedCarts);
+
+            // Update localStorage and recompute totals
+            localStorage.setItem('carts', JSON.stringify(updatedCarts));
+            computePriceAndQty(updatedCarts);
+        }
+    };
+
     return (
         <>
             <Navbar />
@@ -297,37 +356,57 @@ function Index() {
                         </tr>
                     </thead>
                     <tbody>
-                        {carts.length > 0 ? carts.map(item =>
+                        {carts.length > 0 ? carts.map((item, index) => (
                             <tr key={item.id}>
                                 <td>{item.name}</td>
                                 <td className='text-end'>{item.price.toLocaleString('th-TH')}</td>
-                                <td className='text-end'>1</td>
+                                <td className='text-end'>
+                                    <div className="d-flex justify-content-center align-items-center">
+                                        <button
+                                            className="btn btn-outline-secondary btn-sm"
+                                            onClick={() => handleDecrementModal(index)}
+                                        >
+                                            -
+                                        </button>
+                                        <span className="mx-2">{item.quantity}</span>
+                                        <button
+                                            className="btn btn-outline-secondary btn-sm"
+                                            onClick={() => handleIncrementModal(index)}
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </td>
                                 <td className='text-center'>
-                                    <button className='btn btn-danger' onClick={e => handleRemove(item)}>
+                                    <button
+                                        className='btn btn-danger'
+                                        onClick={() => handleRemove(item)}
+                                    >
                                         <i className='fa fa-times'></i>
                                     </button>
                                 </td>
                             </tr>
-                        ) : <></>}
+                        )) : <tr><td colSpan="4" className="text-center">ไม่มีสินค้าในตะกร้า</td></tr>}
                     </tbody>
+
                 </table>
 
                 <div className='text-center'>
                     จำนวน {sumQty} รายการ เป็นเงิน {sumPrice.toLocaleString('th-TH')} บาท
                 </div>
 
-                <div className='mt-3'>              
+                <div className='mt-3'>
                     <div>
                         <div>ชื่อผู้ซื้อ</div>
-                        <input className='form-control' value={customerName} onChange={e => setCustomerName(e.target.value)} />
+                        <input className='form-control' value={customerName} onChange={e => setCustomerName(e.target.value)} placeholder='กรอกชื่อ-นามสกุล' />
                     </div>
                     <div className='mt-3'>
                         <div>เบอร์โทรติดต่อ</div>
-                        <input className='form-control' value={customerPhone} onChange={e => setCustomerPhone(e.target.value)} maxLength="10" />
+                        <input className='form-control' value={customerPhone} onChange={e => setCustomerPhone(e.target.value)} placeholder='กรอกเบอร์ติดต่อ' maxLength="10" />
                     </div>
                     <div className='mt-3'>
                         <div>ที่อยู่จัดส่ง</div>
-                        <input className='form-control' value={customerAddress} onChange={e => setCustomerAddress(e.target.value)} />
+                        <input className='form-control' value={customerAddress} onChange={e => setCustomerAddress(e.target.value)} placeholder='กรอกที่อยู่' />
                     </div>
                     <div className='mt-3'>
                         <div>วันที่โอนเงิน</div>
