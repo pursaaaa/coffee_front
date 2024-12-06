@@ -66,7 +66,7 @@ function Index() {
 
             if (item.img === "") imgPath = "default_image.png";
 
-            return <img className='card-img-top object-fit-fill' height='150px' src={imgPath} alt='item' />
+            return <img className='card-img-top object-fit-contain' height='250px' width='250px' src={imgPath} alt='item' />
         }
 
         return <></>;

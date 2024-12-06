@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    background-color: whitesmoke; 
+    background-color: white; 
     padding: 20px; /* Ensure no content is cut off on small screens */
     box-sizing: border-box; /* Include padding in height calculation */
 }
