@@ -11,6 +11,8 @@ import dayjs from 'dayjs';
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.min';
 import generatePayload from 'promptpay-qr';
 import MyModal from '../components/MyModal';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function ProductDetail() {
     const { id } = useParams(); // Get the product ID from the URL
@@ -34,6 +36,7 @@ function ProductDetail() {
     useEffect(() => {
         fetchData();
         fetchDataFromLocal();
+        AOS.init();
     }, []);
 
     const fetchData = async () => {
@@ -306,31 +309,27 @@ function ProductDetail() {
     return (
         <>
             <Navbar />
-            <div className="shop container py-5">
+            <div className="shop container py-3 mb-5">
                 {/* Cart Section */}
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                    <h3 className="text-dark fw-bold" data-aos="fade-right" data-aos-duration="1200">
-                        สินค้าของเรา
-                    </h3>
+                <div className="d-flex justify-content-end mb-5" data-aos='fade-up' data-aos-duration='1200'>
                     <div className="my-cart d-flex align-items-center">
-                        <span className="me-3 text-muted" style={{ fontSize: '1.2rem' }}>ตะกร้าของฉัน</span>
+                        <span className="me-3" style={{ fontSize: '1.2rem' }}>ตะกร้าของฉัน</span>
                         <button
                             data-bs-toggle="modal"
                             data-bs-target="#modalCart"
-                            className={`btn btn-outline-danger d-flex align-items-center px-3 py-2 ${recordInCarts > 0 && isAnimating ? 'cart-animate' : ''
+                            className={`btn btn-outline-success shadow-sm d-flex align-items-center px-3 py-2 ${recordInCarts > 0 && isAnimating ? 'cart-animate' : ''
                                 }`}
-                            style={{ borderRadius: '25px' }}
-                        >
+                            style={{ borderRadius: '25px' }}>
                             <i className="fa fa-shopping-cart me-2"></i>
                             <span>{recordInCarts} ชิ้น</span>
                         </button>
-                    </div>
+                      </div>
                 </div>
 
-                <div className="container py-5">
+                <div className="container" data-aos='fade-up' data-aos-duration='2000'>
                     {product ? (
                         <div className="row">
-                            <div className="col-lg-6">
+                            <div className="col-lg-6 mb-3">
                                 <img
                                     src={`${config.apiPath}/uploads/${product.img || 'default_image.png'}`}
                                     alt={product.name}
@@ -338,35 +337,17 @@ function ProductDetail() {
                                 />
                             </div>
                             <div className="col-lg-6">
-                                <h2 className="fw-bold">{product.name}</h2>
+                                <h2>{product.name}</h2>
                                 <p className="text-muted">{product.description}</p>
-                                <h4 className="text-danger">{product.price?.toLocaleString('th-TH')} บาท</h4>
-
-                                {/* <div className="d-flex align-items-center mt-4">
-                                    <button
-                                        className="btn btn-outline-secondary me-2"
-                                        onClick={handleDecrement}
-                                    >
-                                        -
-                                    </button>
-                                    <span className="fw-bold">{quantity}</span>
-                                    <button
-                                        className="btn btn-outline-secondary ms-2"
-                                        onClick={handleIncrement}
-                                    >
-                                        +
-                                    </button>
-                                </div> */}
-
+                                <h5>{product.price?.toLocaleString('th-TH')} บาท</h5>
                                 <button
-                                    className="btn btn-warning mt-3"
+                                    className="btn btn-outline-dark shadow-sm mt-3"
                                     onClick={() => addToCartWithFeedback(product)}
-                                    disabled={product.isAdding}
-                                >
+                                    disabled={product.isAdding}>
                                     {product.isAdding ? 'Adding...' : 'Add to Cart'}
                                 </button>
-                            </div>
-                        </div>
+                                </div>
+                          </div>
                     ) : (
                         <p>Loading product details...</p>
                     )}

@@ -52,7 +52,7 @@ function Products() {
                         product.map((item) => (
                             <div className="col-12 col-sm-6 col-md-4" key={item.id}>
                                 <div className="card border-0 h-100" data-aos="fade-up" data-aos-duration="1200">
-                                    <a href={`/product/${item.id}`} className="text-decoration-none">
+                                    <a href={`/product/${item.id}`} >
                                         <div className="card-img-top overflow-hidden" style={{ height: "200px" }}>
                                             {showImage(item)}
                                         </div>
@@ -61,11 +61,11 @@ function Products() {
                                             <p className="card-text text-muted mb-2">{item.price.toLocaleString('th-TH')} บาท</p>
                                         </div>
                                     </a>
-                                    <div className="card-footer border-0 bg-transparent text-center">
+                                    {/* <div className="card-footer border-0 bg-transparent text-center">
                                         <a href={`/product/${item.id}`} className="btn btn-outline-secondary btn-sm">
                                             ดูรายละเอียด
                                         </a>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         ))

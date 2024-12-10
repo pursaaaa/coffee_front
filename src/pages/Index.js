@@ -297,18 +297,18 @@ function Index() {
     return (
         <>
             <Navbar />
-            <div className="shop container py-5">
+            <div className="shop container py-3">
                 {/* Cart Section */}
                 <div className="d-flex justify-content-between align-items-center mb-4">
-                    <h3 className="text-dark fw-bold" data-aos="fade-right" data-aos-duration="1200">
+                    <h3 className="text-dark fw-bold" data-aos="fade-up" data-aos-duration="1400">
                         สินค้าของเรา
                     </h3>
-                    <div className="my-cart d-flex align-items-center">
+                    <div className="my-cart d-flex align-items-center" data-aos="fade-up" data-aos-duration="1200">
                         <span className="me-3 text-muted" style={{ fontSize: '1.2rem' }}>ตะกร้าของฉัน</span>
                         <button
                             data-bs-toggle="modal"
                             data-bs-target="#modalCart"
-                            className="btn btn-outline-danger d-flex align-items-center px-3 py-2"
+                            className="btn btn-outline-success shadow-sm d-flex align-items-center px-3 py-2"
                             style={{ borderRadius: '25px' }}
                         >
                             <i className="fa fa-shopping-cart me-2"></i>
@@ -318,11 +318,11 @@ function Index() {
                 </div>
 
                 {/* Products Section */}
-                <div className="row g-4">
+                <div className="row g-4 py-3">
                     {products.length > 0 ? (
                         products.map((item) => (
                             <div className="col-12 col-sm-6 col-md-4" key={item.id}>
-                                <div className="card border-0 h-100" data-aos="fade-up" data-aos-duration="1200">
+                                <div className="card" data-aos="fade-up" data-aos-duration="1800">
                                     <Link to={`/product/${item.id}`} className="text-decoration-none">
                                         <div className="card-img-top overflow-hidden" style={{ height: '200px' }}>
                                             {showImage(item)}

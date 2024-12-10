@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/SignIn.css';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import config from '../config';
 import Navbar from '../components/Navbar';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 function SignIn() {
+    useEffect(() => {
+        AOS.init({
+            once: true
+        })
+    }, []);
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -47,7 +56,7 @@ function SignIn() {
         <>
             <Navbar />
             <div className="signin-container d-flex align-items-center justify-content-center">
-                <div className="card signin-card">
+                <div className="card signin-card" data-aos='fade-up' data-aos-duration='1400'>
                     <h3 className="text-center mb-4">เข้าสู่ระบบ</h3>
                     <form>
                         <div className="mb-3">

@@ -59,7 +59,7 @@ function Contact() {
         <Navbar />
 
         <section className="contact-page">
-            <div className="container">
+            <div className="container" data-aos='fade-up' data-aos-duration='1400'>
                 <h2 className="text-center mb-5">ติดต่อกับเรา</h2>
                 <div className="row">
                     <div className="col-md-6 mb-4">

@@ -33,7 +33,7 @@ function Story() {
         </div>
     </div>
 
-        <div className='aboutus-content' data-aos='fade-zoom-in' data-aos-duration='1400'>
+        <div className='aboutus-content' data-aos='fade-up' data-aos-duration='1400'>
             <p>We roast some of the best coffees on the planet</p>
             <p>THE BARN is a leading coffee roaster in Europe and represents the Specialty Coffee Movement at the highest level since 2010. Our beans are served by many coffee shops and home brewers across the globe.</p>
             <p>Our vision has been very clear from the start: We focus on making our coffees better and better. No compromise - just great coffee. We would never blend our coffees in order to showcase specific flavour profiles and to present each farm we work with. This makes our farmers proud and the product fully traceable.</p>

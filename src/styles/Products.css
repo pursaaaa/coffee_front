@@ -23,17 +23,9 @@
 
  #products .card:hover {
     scale: 1.05;
+    transition: 0.5s;
  }
 
- .card:hover {
-   transform: translateY(-5px);
-   transition: all 0.3s ease-in-out;
-}
-
 .card-img-top img {
-   transition: transform 0.3s ease-in-out;
-}
-
-.card:hover .card-img-top img {
-   transform: scale(1.05);
+   transition: transform 0.3s;
 }

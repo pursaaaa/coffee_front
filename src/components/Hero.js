@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../styles/Hero.css';
 import axios from 'axios';
 import config from '../config';
+import { Link } from "react-router-dom";
 
 
 function Hero() {
@@ -36,20 +37,20 @@ function Hero() {
                 <div className='hero-box'>
                     <ul>
                         <li>
-                            <a href=''>
+                            <Link to='/shop'>
                                 <div  className='image-box'>
                                     <img src='/Beans.jpg'></img>
                                     <div className='box-overlay-text'>BEANs</div>
                                 </div>
-                            </a>
+                                </Link>
                         </li>
                         <li>
-                            <a href=''>
+                            <Link to='/contact'>
                                 <div  className='image-box'>
                                     <img src='/000054.JPG'></img>
                                     <div className='box-overlay-text'>Our store</div>
                                 </div>
-                            </a>
+                                </Link>
                         </li>
                     </ul>
                 </div>
