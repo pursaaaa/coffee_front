@@ -23,6 +23,17 @@ import { Link } from 'react-router-dom';
 
 function Index() {
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [categories, setCategories] = useState({
+        'coffee-beans': true,
+        equipment: true,
+    });
+
+    const [priceRange, setPriceRange] = useState([0, 10000]); // Initial price range [min, max]
+    const [maxPrice, setMaxPrice] = useState(10000); // The maximum price for the slider
+    const [searchQuery, setSearchQuery] = useState("");
+    const [sortOption, setSortOption] = useState("default");
+
     const [carts, setCarts] = useState([]); // Items in Carts
     const [recordInCarts, setRecordInCarts] = useState(0);
     const [sumQty, setSumQty] = useState(0);
@@ -44,12 +55,32 @@ function Index() {
         AOS.init()
     }, []);
 
+    useEffect(() => {
+        filterProducts();
+    }, [searchQuery, products, categories, priceRange]);
+
+    useEffect(() => {
+        let sortedProducts = [...filteredProducts];
+        if (sortOption === "priceLowToHigh") {
+            sortedProducts.sort((a, b) => a.price - b.price);
+        } else if (sortOption === "priceHighToLow") {
+            sortedProducts.sort((a, b) => b.price - a.price);
+        } else if (sortOption === "alphabetical") {
+            sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+        }
+        setFilteredProducts(sortedProducts);
+    }, [sortOption]);
+
     const fetchData = async () => {
         try {
             const res = await axios.get(config.apiPath + '/product/list');
 
             if (res.data.results !== undefined) {
                 setProducts(res.data.results);
+                setFilteredProducts(res.data.results); // Initially show all products
+                const maxProductPrice = Math.max(...res.data.results.map((p) => p.price));
+                setMaxPrice(maxProductPrice);
+                setPriceRange([0, maxProductPrice]); // Adjust the initial range based on data
             }
         } catch (e) {
             Swal.fire({
@@ -80,20 +111,32 @@ function Index() {
         computePriceAndQty(itemInCarts);
     };
 
+    const filterProducts = () => {
+        const filtered = products.filter(
+            (product) => categories[product.type] && // Only include products where the type is selected
+                product.price >= priceRange[0] &&
+                product.price <= priceRange[1] && // Filter by price range
+                product.name.toLowerCase().includes(searchQuery) // Match search query
 
-    // const computePriceAndQty = (itemInCarts) => {
-    //     let sumQty = 0;
-    //     let sumPrice = 0;
+        );
+        setFilteredProducts(filtered);
+    };
 
-    //     for (let i = 0; i < itemInCarts.length; i++) {
-    //         const item = itemInCarts[i];
-    //         sumQty++;
-    //         sumPrice += parseInt(item.price);
-    //     }
+    const handleCategoryChange = (type) => {
+        setCategories((prev) => ({ ...prev, [type]: !prev[type] }));
+    };
 
-    //     setSumPrice(sumPrice);
-    //     setSumQty(sumQty);
-    // }
+    const handlePriceRangeChange = (e) => {
+        setPriceRange([0, parseInt(e.target.value)]); // Adjust only the upper limit
+    };
+
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value.toLowerCase());
+    };
+
+    const handleSortChange = (e) => {
+        setSortOption(e.target.value);
+    };
 
     const computePriceAndQty = (itemInCarts) => {
         let totalQty = 0;
@@ -109,44 +152,6 @@ function Index() {
         setSumPrice(totalPrice); // Update the total price
         setRecordInCarts(totalQty)
     };
-
-
-    // const handleRemove = async (item) => {
-    //     try {
-    //         const button = await Swal.fire({
-    //             title: 'ลบสินค้า',
-    //             text: 'คุณต้องการลบสินค้าออกจากตระกร้าใช่หรือไม่',
-    //             icon: 'question',
-    //             showConfirmButton: true,
-    //             showCancelButton: true
-    //         })
-
-    //         if (button.isConfirmed) {
-    //             let arr = carts;
-
-    //             for (let i = 0; i < arr.length; i++) {
-    //                 const itemInCart = arr[i];
-
-    //                 if (item.id === itemInCart.id) {
-    //                     arr.splice(i, 1);
-    //                 }
-    //             }
-
-    //             setCarts(arr);
-    //             setRecordInCarts(arr.length);
-
-    //             localStorage.setItem('carts', JSON.stringify(arr));
-
-    //             computePriceAndQty(arr);
-    //         }
-    //     } catch (e) {
-    //         Swal.fire({
-    //             title: 'error',
-    //             text: e.message,
-    //             icon: 'error'
-    //         })
-    //     }
-    // }
 
     const handleRemove = async (item) => {
         try {
@@ -297,8 +302,7 @@ function Index() {
     return (
         <>
             <Navbar />
-            <div className="shop container py-3">
-                {/* Cart Section */}
+            <div className="shop">
                 <div className="d-flex justify-content-between align-items-center mb-4">
                     <h3 className="text-dark fw-bold" data-aos="fade-up" data-aos-duration="1400">
                         สินค้าของเรา
@@ -316,30 +320,96 @@ function Index() {
                         </button>
                     </div>
                 </div>
-
-                {/* Products Section */}
-                <div className="row g-4 py-3">
-                    {products.length > 0 ? (
-                        products.map((item) => (
-                            <div className="col-12 col-sm-6 col-md-4" key={item.id}>
-                                <div className="card" data-aos="fade-up" data-aos-duration="1800">
-                                    <Link to={`/product/${item.id}`} className="text-decoration-none">
-                                        <div className="card-img-top overflow-hidden" style={{ height: '200px' }}>
-                                            {showImage(item)}
-                                        </div>
-                                    </Link>
-                                    <div className="card-body text-center">
-                                        <Link to={`/product/${item.id}`} className="text-decoration-none">
-                                            <h5 className="card-title fw-bold text-dark">{item.name}</h5>
-                                            <p className="card-text text-muted mb-0">{item.price.toLocaleString('th-TH')} บาท</p>
-                                        </Link>
-                                    </div>
-                                </div>
+                <div className="row">
+                    {/* Sidebar */}
+                    <div className="col-12 col-md-3 mb-4" data-aos="fade-up" data-aos-duration="1400">
+                        <div className="p-3 bg-light rounded">
+                            <h5 className="fw-bold">ประเภทของสินค้า</h5>
+                            <div className="form-check">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    id="coffeeBeans"
+                                    checked={categories['coffee-beans']}
+                                    onChange={() => handleCategoryChange('coffee-beans')}
+                                />
+                                <label htmlFor="coffeeBeans" className="form-check-label">
+                                    เมล็ดกาแฟ
+                                </label>
                             </div>
-                        ))
-                    ) : (
-                        <p className="text-center text-muted">No products available.</p>
-                    )}
+                            <div className="form-check">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    id="equipment"
+                                    checked={categories.equipment}
+                                    onChange={() => handleCategoryChange('equipment')}
+                                />
+                                <label htmlFor="equipment" className="form-check-label">
+                                    อุปกรณ์
+                                </label>
+                            </div>
+
+                            <div className="col-12 mb-4 mt-2">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="ค้นหาสินค้า"
+                                    value={searchQuery}
+                                    onChange={handleSearch}
+                                />
+                            </div>
+
+                            <h5 className="fw-bold mt-2">ช่วงราคาสินค้า</h5>
+                            <div className="text-center">
+                                <p>สูงสุด: {priceRange[1].toLocaleString('th-TH')} บาท</p>
+                                <input
+                                    type="range"
+                                    className="form-range"
+                                    min="0"
+                                    max={maxPrice}
+                                    step="100"
+                                    value={priceRange[1]}
+                                    onChange={handlePriceRangeChange}
+                                />
+                            </div>
+
+                            <h5 className="fw-bold mt-3">จัดเรียงโดย</h5>
+                            <select className="form-select" value={sortOption} onChange={handleSortChange}>
+                                <option value="default">Default</option>
+                                <option value="priceLowToHigh">ราคา: ต่ำสุด ไป สูงสุด</option>
+                                <option value="priceHighToLow">ราคา: สูงสุด ไป ต่ำสุด</option>
+                                <option value="alphabetical">เรียงตามตัวอักษร</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    {/* Products Section */}
+                    <div className="col-12 col-md-9">
+                        <div className="row g-4">
+                            {filteredProducts.length > 0 ? (
+                                filteredProducts.map((item) => (
+                                    <div className="col-12 col-sm-6 col-md-4" key={item.id} data-aos="fade-up" data-aos-duration="500">
+                                        <div className="card">
+                                            <Link to={`/product/${item.id}`} className="text-decoration-none">
+                                                {showImage(item)}
+                                            </Link>
+                                            <div className="card-body text-center">
+                                                <Link to={`/product/${item.id}`} className="text-decoration-none">
+                                                    <h5 className="card-title fw-bold text-dark">{item.name}</h5>
+                                                    <p className="card-text text-muted mb-0">
+                                                        {item.price.toLocaleString('th-TH')} บาท
+                                                    </p>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <p className="text-center text-muted">No products available.</p>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
 

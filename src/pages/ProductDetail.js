@@ -357,63 +357,6 @@ function ProductDetail() {
 
             <Footer />
 
-            {/* <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
-                <table className='table table-bordered table-striped'>
-                    <thead>
-                        <tr>
-                            <th>ชื่อสินค้า</th>
-                            <th className='text-end'>ราคา</th>
-                            <th className='text-end'>จำนวน</th>
-                            <th width='60px'></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {carts.length > 0 ? carts.map(item =>
-                            <tr key={item.id}>
-                                <td>{item.name}</td>
-                                <td className='text-end'>{item.price.toLocaleString('th-TH')}</td>
-                                <td className='text-end'>1</td>
-                                <td className='text-center'>
-                                    <button className='btn btn-danger' onClick={e => handleRemove(item)}>
-                                        <i className='fa fa-times'></i>
-                                    </button>
-                                </td>
-                            </tr>
-                        ) : <></>}
-                    </tbody>
-                </table>
-
-                <div className='text-center'>
-                    จำนวน {sumQty} รายการ เป็นเงิน {sumPrice.toLocaleString('th-TH')} บาท
-                </div>
-
-                <div className='mt-3'>
-                    <div>
-                        <div>ชื่อผู้ซื้อ</div>
-                        <input className='form-control' value={customerName} onChange={e => setCustomerName(e.target.value)} />
-                    </div>
-                    <div className='mt-3'>
-                        <div>เบอร์โทรติดต่อ</div>
-                        <input className='form-control' value={customerPhone} onChange={e => setCustomerPhone(e.target.value)} maxLength="10" />
-                    </div>
-                    <div className='mt-3'>
-                        <div>ที่อยู่จัดส่ง</div>
-                        <input className='form-control' value={customerAddress} onChange={e => setCustomerAddress(e.target.value)} />
-                    </div>
-                    <div className='mt-3'>
-                        <div>วันที่โอนเงิน</div>
-                        <input className='form-control' type='date' value={payDate} onChange={e => setPayDate(e.target.value)} />
-                    </div>
-                    <div className='mt-3'>
-                        <div>เวลาที่โอนเงิน</div>
-                        <input className='form-control' type='time' value={payTime} onChange={e => setPayTime(e.target.value)} />
-                    </div>
-                    <button className='btn btn-primary mt-3' onClick={handleSave}>
-                        <i className='fa fa-check mr-2'></i> ยืนยันการซื้อ
-                    </button>
-                </div>
-            </MyModal> */}
-
             <MyModal id='modalCart' title='ตะกร้าสินค้าของฉัน'>
                 <table className='table table-bordered table-striped'>
                     <thead>
