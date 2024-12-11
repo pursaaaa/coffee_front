@@ -22,10 +22,6 @@
  }
 
  #products .card:hover {
-    scale: 1.05;
     transition: 0.5s;
  }
 
-.card-img-top img {
-   transition: transform 0.3s;
-}

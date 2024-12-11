@@ -17,7 +17,7 @@ function Products() {
 
             if (res.data.results !== undefined) {
                 const selectedProducts = res.data.results.filter(
-                    (item) => item.id === 1 || item.id === 4 || item.id === 5     // Replace with your IDs
+                    (item) => item.id === 6 || item.id === 9 || item.id === 8     // Replace with your IDs
                 );
 
                 setProducts(selectedProducts);
@@ -53,7 +53,7 @@ function Products() {
                             <div className="col-12 col-sm-6 col-md-4" key={item.id}>
                                 <div className="card border-0 h-100" data-aos="fade-up" data-aos-duration="1200">
                                     <a href={`/product/${item.id}`} >
-                                        <div className="card-img-top overflow-hidden" style={{ height: "200px" }}>
+                                        <div className="card-img-top overflow-hidden">
                                             {showImage(item)}
                                         </div>
                                         <div className="card-body text-center">

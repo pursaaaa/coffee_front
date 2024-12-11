@@ -20,6 +20,7 @@ header {
     align-items: center;
     justify-content: center;
     padding: 0 100px;
+    animation: navTransition 2s;
 }
 .logo {
     font-size: 28px;
@@ -149,3 +150,12 @@ header {
         padding: 15px 20px; 
     }
 }
+
+@keyframes navTransition {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+   }

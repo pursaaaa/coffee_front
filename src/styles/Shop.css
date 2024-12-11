@@ -14,14 +14,46 @@
 .card:hover .card-img-top img {
     transition: 0.5s;
     opacity: 0.5;
+    cursor: pointer;
 }
 
-.btn-outline-danger {
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+.form-filter {
+    animation: transitionIn 2s;
 }
+   
+   @media screen and (max-width: 768px) {
+    .form-filter {
+        display: none;
+        transition: left 0.3s ease-in-out;
+    }
+    
+    .form-filter.open {
+      display: block;
+    }
+    
+    .filter-icon {
+      display: flex;
+      justify-content: end;
+    }
+   }
+   
+   @media screen and (min-width: 769px) {
+    .form-filter {
+      display: block;
+    }
+    
+    .filter-icon {
+      display: none;
+    }
+   }
 
-.btn-outline-danger:hover {
-    background-color: #dc3545;
-    color: #fff;
-}
-
+   @keyframes transitionIn {
+    from {
+        opacity: 0;
+        transform: translateY(90px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+   }

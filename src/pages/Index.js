@@ -47,12 +47,16 @@ function Index() {
 
     const [qrCodeUrl, setQrCodeUrl] = useState(''); // Stores the generated QR code URL
 
+    const [isFilterOpen, setIsFilterOpen] = useState(false);
+
 
 
     useEffect(() => {
         fetchData();
         fetchDataFromLocal();
-        AOS.init()
+        AOS.init({
+            once: true
+        })
     }, []);
 
     useEffect(() => {
@@ -299,6 +303,12 @@ function Index() {
         }
     };
 
+    const toggleFilter = () => {
+        setIsFilterOpen(!isFilterOpen);
+    };
+    
+      
+
     return (
         <>
             <Navbar />
@@ -307,12 +317,11 @@ function Index() {
                     <h3 className="text-dark fw-bold" data-aos="fade-up" data-aos-duration="1400">
                         สินค้าของเรา
                     </h3>
-                    <div className="my-cart d-flex align-items-center" data-aos="fade-up" data-aos-duration="1200">
-                        <span className="me-3 text-muted" style={{ fontSize: '1.2rem' }}>ตะกร้าของฉัน</span>
+                    <div className="my-cart d-flex align-items-center" data-aos="fade-up" data-aos-duration="1400">
                         <button
                             data-bs-toggle="modal"
                             data-bs-target="#modalCart"
-                            className="btn btn-outline-success shadow-sm d-flex align-items-center px-3 py-2"
+                            className="btn btn-outline-dark shadow-sm d-flex align-items-center px-3 py-2"
                             style={{ borderRadius: '25px' }}
                         >
                             <i className="fa fa-shopping-cart me-2"></i>
@@ -322,7 +331,12 @@ function Index() {
                 </div>
                 <div className="row">
                     {/* Sidebar */}
-                    <div className="col-12 col-md-3 mb-4" data-aos="fade-up" data-aos-duration="1400">
+                    
+                    <div className="filter-icon px-3 mb-3" onClick={toggleFilter} data-aos="fade-up" data-aos-duration="1400">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+
+                    <div className={`col-12 col-md-3 mb-4 form-filter ${isFilterOpen ? 'open' : ''}`}>
                         <div className="p-3 bg-light rounded">
                             <h5 className="fw-bold">ประเภทของสินค้า</h5>
                             <div className="form-check">
@@ -383,15 +397,16 @@ function Index() {
                             </select>
                         </div>
                     </div>
+                    
 
                     {/* Products Section */}
                     <div className="col-12 col-md-9">
                         <div className="row g-4">
                             {filteredProducts.length > 0 ? (
                                 filteredProducts.map((item) => (
-                                    <div className="col-12 col-sm-6 col-md-4" key={item.id} data-aos="fade-up" data-aos-duration="500">
+                                    <div className="col-12 col-sm-6 col-md-4" key={item.id} data-aos="fade-up" data-aos-duration="1800">
                                         <div className="card">
-                                            <Link to={`/product/${item.id}`} className="text-decoration-none">
+                                            <Link to={`/product/${item.id}`} className='card-img-top'>
                                                 {showImage(item)}
                                             </Link>
                                             <div className="card-body text-center">
@@ -449,7 +464,7 @@ function Index() {
                                 </td>
                                 <td className='text-center'>
                                     <button
-                                        className='btn btn-danger'
+                                        className='btn btn-outline-danger'
                                         onClick={() => handleRemove(item)}
                                     >
                                         <i className='fa fa-times'></i>
@@ -486,7 +501,7 @@ function Index() {
                         <div>เวลาที่โอนเงิน</div>
                         <input className='form-control' type='time' value={payTime} onChange={e => setPayTime(e.target.value)} />
                     </div>
-                    <button className='btn btn-primary mt-3' onClick={handleSave}>
+                    <button className='btn btn-outline-dark mt-3' onClick={handleSave}>
                         <i className='fa fa-check mr-2'></i> ยืนยันการซื้อ
                     </button>
                 </div>

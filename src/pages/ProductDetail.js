@@ -313,11 +313,10 @@ function ProductDetail() {
                 {/* Cart Section */}
                 <div className="d-flex justify-content-end mb-5" data-aos='fade-up' data-aos-duration='1200'>
                     <div className="my-cart d-flex align-items-center">
-                        <span className="me-3" style={{ fontSize: '1.2rem' }}>ตะกร้าของฉัน</span>
                         <button
                             data-bs-toggle="modal"
                             data-bs-target="#modalCart"
-                            className={`btn btn-outline-success shadow-sm d-flex align-items-center px-3 py-2 ${recordInCarts > 0 && isAnimating ? 'cart-animate' : ''
+                            className={`btn btn-outline-dark shadow-sm d-flex align-items-center px-3 py-2 ${recordInCarts > 0 && isAnimating ? 'cart-animate' : ''
                                 }`}
                             style={{ borderRadius: '25px' }}>
                             <i className="fa fa-shopping-cart me-2"></i>
@@ -333,7 +332,7 @@ function ProductDetail() {
                                 <img
                                     src={`${config.apiPath}/uploads/${product.img || 'default_image.png'}`}
                                     alt={product.name}
-                                    className="img-fluid rounded shadow-sm"
+                                    className="img-fluid"
                                 />
                             </div>
                             <div className="col-lg-6">
@@ -390,7 +389,7 @@ function ProductDetail() {
                                     </div>
                                 </td>
                                 <td className='text-center'>
-                                    <button className='btn btn-danger' onClick={() => handleRemove(item)}>
+                                    <button className='btn btn-outline-danger' onClick={() => handleRemove(item)}>
                                         <i className='fa fa-times'></i>
                                     </button>
                                 </td>
@@ -424,7 +423,7 @@ function ProductDetail() {
                         <div>เวลาที่โอนเงิน</div>
                         <input className='form-control' type='time' value={payTime} onChange={e => setPayTime(e.target.value)} />
                     </div>
-                    <button className='btn btn-primary mt-3' onClick={handleSave}>
+                    <button className='btn btn-outline-dark mt-3' onClick={handleSave}>
                         <i className='fa fa-check mr-2'></i> ยืนยันการซื้อ
                     </button>
                 </div>
@@ -436,7 +435,7 @@ function ProductDetail() {
                     <div className="text-center">
                         <img src={qrCodeUrl} alt="PromptPay QR Code" />
                         <p>Scan this QR code to pay {sumPrice.toLocaleString()} THB</p>
-                        <button className='btn btn-primary mt-3' onClick={handleDeposit}>
+                        <button className='btn btn-outline-dark mt-3' onClick={handleDeposit}>
                             <i className='fa fa-check mr-2'></i> ยืนยันการโอนเงิน
                         </button>
                     </div>
