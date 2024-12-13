@@ -44,7 +44,7 @@ function Story() {
         <img src="/story2.JPG" alt="story" className="left" data-aos='fade-right' data-aos-duration='1500'></img>
             <div className="right" data-aos='fade-left' data-aos-duration='1500'>
                 <div className="story-content">
-                    <h1>This is header</h1>
+                    <h1>Our Farmers</h1>
                     <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from. We partner with producers we know and trust, ensuring quality throughout every step of the roasting process. Our ethical sourcing prioritises empowering farmers and fostering sustainability. This commitment results in great coffee that reflects a deep respect for people and the planet.</p>
                 </div>
             </div>
@@ -56,7 +56,7 @@ function Story() {
             <img src="/000071.JPEG" alt="story1" className="top-story-img" data-aos='fade-up' data-aos-duration='1500'></img>
             <div className="bottom-story-text" data-aos='fade-up' data-aos-duration='1500'>
                 <div className="story-content">
-                    <h1>This is header</h1>
+                    <h1>COFFEE SOURCING</h1>
                     <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from. We partner with producers we know and trust, ensuring quality throughout every step of the roasting process. Our ethical sourcing prioritises empowering farmers and fostering sustainability. This commitment results in great coffee that reflects a deep respect for people and the planet.</p>
                 </div>
             </div>
@@ -69,7 +69,7 @@ function Story() {
             <img src="/story1.JPG" alt="story2" className="left" data-aos='fade-right' data-aos-duration='1500'></img>
             <div className="right" data-aos='fade-left' data-aos-duration='1500'>
                 <div className="story-content">
-                    <h1>This is header</h1>
+                    <h1>Community</h1>
                     <p>Building genuine relationships with coffee producers is at the heart of everything we do. We believe these connections matter because they mean better coffee for you and a positive impact on the communities we source from. We partner with producers we know and trust, ensuring quality throughout every step of the roasting process. Our ethical sourcing prioritises empowering farmers and fostering sustainability. This commitment results in great coffee that reflects a deep respect for people and the planet.</p>
                 </div>
             </div>
